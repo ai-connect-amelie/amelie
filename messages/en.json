@@ -1,0 +1,80 @@
+{
+  "nav": {
+    "quienesSomos": "About us",
+    "carta": "Menu",
+    "alquilerSala": "Room hire",
+    "hitCard": "Hit Card",
+    "reservar": "Reserve",
+    "contacto": "Contact",
+    "eventos": "Events",
+    "galeria": "Gallery"
+  },
+  "home": {
+    "hero": {
+      "title": "France, without leaving Gran Canaria.",
+      "subtitle": "An authentic French gastronomic experience in the heart of Las Palmas.",
+      "ctaReservar": "Reserve a table",
+      "ctaDescubrir": "Discover Amelie"
+    },
+    "philosophy": {
+      "label": "Our philosophy",
+      "title": "Happiness is hidden in the small details.",
+      "text": "Amelie was born from the desire to share what we love most about France. Not the clichés, not the apparent luxury. Real France. The France of families, markets, long lunches and flavours that awaken memories."
+    },
+    "experience": {
+      "label": "The experience",
+      "title": "We don't serve France.\nWe share it.",
+      "text": "Every dish, every detail and every story you will find at Amelie comes from a real experience. That of a French woman who, far from her country, decided to open a place to share everything she loves about her gastronomic culture."
+    },
+    "differentials": {
+      "label": "What makes us unique",
+      "title": "Three reasons to discover Amelie",
+      "pan": {
+        "title": "Our bread",
+        "text": "Made entirely in our kitchen. Our own recipe, a special blend of flours. A ritual that begins before the first course.",
+        "cta": "Learn more"
+      },
+      "galette": {
+        "title": "La galette bretonne",
+        "text": "Organic flour from Brittany, milled at a historic mill active since 1870. The only authentic galette in Gran Canaria.",
+        "cta": "Learn more"
+      },
+      "historia": {
+        "title": "Our story",
+        "text": "A French woman far from home shares with Las Palmas what she loves most about France. A real story, an authentic experience.",
+        "cta": "Learn more"
+      }
+    },
+    "galette": {
+      "label": "Brittany · Since 1870",
+      "title": "The galette that crossed the ocean.",
+      "text1": "In Brittany, there is a mill that has been active since 1870. There, the organic buckwheat flour is milled that travels to Las Palmas de Gran Canaria exclusively for Amelie.",
+      "text2": "It's not a crepe. It's a gastronomic tradition with centuries of history. An honest recipe, with real ingredients, made as it has always been done in Breton homes.",
+      "cta": "View the menu"
+    },
+    "instagram": {
+      "label": "Follow us",
+      "title": "Life at Amelie,\none detail at a time.",
+      "handle": "@amelie_cafe_las_palmas",
+      "cta": "Follow on Instagram"
+    },
+    "location": {
+      "label": "Where to find us",
+      "title": "Find us",
+      "address": "C. Jesús Ferrer Jimeno, 4",
+      "city": "35010 Las Palmas de Gran Canaria",
+      "hours": "Tue–Thu · 9:30–16:30",
+      "hoursFriSat": "Fri–Sat · 9:30–16:30 and 20:00–23:00",
+      "closed": "Closed Sundays and Mondays",
+      "phone": "+34 928 60 75 70",
+      "ctaReservar": "Reserve a table",
+      "ctaMaps": "Get directions"
+    }
+  },
+  "footer": {
+    "tagline": "A French experience in the heart of Las Palmas.",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy",
+    "cookies": "Cookies"
+  }
+}

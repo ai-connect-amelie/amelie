@@ -1,0 +1,80 @@
+{
+  "nav": {
+    "quienesSomos": "Quiénes somos",
+    "carta": "La carta",
+    "alquilerSala": "Alquiler de sala",
+    "hitCard": "Hit Card",
+    "reservar": "Reservar",
+    "contacto": "Contacto",
+    "eventos": "Eventos",
+    "galeria": "Galería"
+  },
+  "home": {
+    "hero": {
+      "title": "Francia, sin salir de Gran Canaria.",
+      "subtitle": "Una experiencia gastronómica francesa auténtica en el corazón de Las Palmas.",
+      "ctaReservar": "Reservar mesa",
+      "ctaDescubrir": "Descubrir Amelie"
+    },
+    "philosophy": {
+      "label": "Nuestra filosofía",
+      "title": "La felicidad está escondida en los pequeños detalles.",
+      "text": "Amelie nace del deseo de compartir lo que más amamos de Francia. No los clichés, no el lujo aparente. La Francia real. La de las familias, los mercados, las sobremesas largas y los sabores que despiertan recuerdos."
+    },
+    "experience": {
+      "label": "La experiencia",
+      "title": "No servimos Francia.\nLa compartimos.",
+      "text": "Cada plato, cada detalle y cada historia que encontrarás en Amelie nace de una vivencia real. La de una francesa que, lejos de su país, decidió abrir un lugar donde compartir todo lo que ama de su cultura gastronómica."
+    },
+    "differentials": {
+      "label": "Lo que nos hace únicos",
+      "title": "Tres razones para descubrir Amelie",
+      "pan": {
+        "title": "Nuestro pan",
+        "text": "Elaborado íntegramente en nuestra cocina. Receta propia, mezcla especial de harinas. Un ritual que comienza antes del primer plato.",
+        "cta": "Conocer más"
+      },
+      "galette": {
+        "title": "La galette bretonne",
+        "text": "Harina ecológica de Bretaña, molida en un molino histórico activo desde 1870. La única galette auténtica en Gran Canaria.",
+        "cta": "Conocer más"
+      },
+      "historia": {
+        "title": "Nuestra historia",
+        "text": "Una francesa lejos de casa comparte con Las Palmas aquello que más ama de Francia. Una historia real, una experiencia auténtica.",
+        "cta": "Conocer más"
+      }
+    },
+    "galette": {
+      "label": "Bretaña · Desde 1870",
+      "title": "La galette que cruzó el océano.",
+      "text1": "En Bretaña existe un molino que lleva activo desde 1870. Allí se muele la harina de trigo sarraceno ecológico que viaja hasta Las Palmas de Gran Canaria exclusivamente para Amelie.",
+      "text2": "No es una crepe. Es una tradición gastronómica con siglos de historia. Una receta honesta, de ingredientes reales, elaborada como se ha hecho siempre en las casas bretonas.",
+      "cta": "Ver la carta"
+    },
+    "instagram": {
+      "label": "Síguenos",
+      "title": "La vida en Amelie,\nun detalle a la vez.",
+      "handle": "@amelie_cafe_las_palmas",
+      "cta": "Seguir en Instagram"
+    },
+    "location": {
+      "label": "Dónde estamos",
+      "title": "Encuéntranos",
+      "address": "C. Jesús Ferrer Jimeno, 4",
+      "city": "35010 Las Palmas de Gran Canaria",
+      "hours": "Mar–Jue · 9:30–16:30",
+      "hoursFriSat": "Vie–Sáb · 9:30–16:30 y 20:00–23:00",
+      "closed": "Cerrado domingos y lunes",
+      "phone": "+34 928 60 75 70",
+      "ctaReservar": "Reservar mesa",
+      "ctaMaps": "Cómo llegar"
+    }
+  },
+  "footer": {
+    "tagline": "Una experiencia francesa en el corazón de Las Palmas.",
+    "rights": "Todos los derechos reservados.",
+    "privacy": "Privacidad",
+    "cookies": "Cookies"
+  }
+}

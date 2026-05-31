@@ -1,0 +1,80 @@
+{
+  "nav": {
+    "quienesSomos": "Qui sommes-nous",
+    "carta": "La carte",
+    "alquilerSala": "Location de salle",
+    "hitCard": "Hit Card",
+    "reservar": "Réserver",
+    "contacto": "Contact",
+    "eventos": "Événements",
+    "galeria": "Galerie"
+  },
+  "home": {
+    "hero": {
+      "title": "La France, sans quitter Gran Canaria.",
+      "subtitle": "Une expérience gastronomique française authentique au cœur de Las Palmas.",
+      "ctaReservar": "Réserver une table",
+      "ctaDescubrir": "Découvrir Amelie"
+    },
+    "philosophy": {
+      "label": "Notre philosophie",
+      "title": "Le bonheur se cache dans les petits détails.",
+      "text": "Amelie est née du désir de partager ce que nous aimons le plus de la France. Pas les clichés, pas le luxe apparent. La vraie France. Celle des familles, des marchés, des longues tablées et des saveurs qui éveillent des souvenirs."
+    },
+    "experience": {
+      "label": "L'expérience",
+      "title": "Nous ne servons pas la France.\nNous la partageons.",
+      "text": "Chaque plat, chaque détail et chaque histoire que vous trouverez chez Amelie naît d'une expérience réelle. Celle d'une Française qui, loin de son pays, a décidé d'ouvrir un endroit pour partager tout ce qu'elle aime de sa culture gastronomique."
+    },
+    "differentials": {
+      "label": "Ce qui nous rend uniques",
+      "title": "Trois raisons de découvrir Amelie",
+      "pan": {
+        "title": "Notre pain",
+        "text": "Entièrement élaboré dans notre cuisine. Recette propre, mélange spécial de farines. Un rituel qui commence avant le premier plat.",
+        "cta": "En savoir plus"
+      },
+      "galette": {
+        "title": "La galette bretonne",
+        "text": "Farine biologique de Bretagne, moulue dans un moulin historique actif depuis 1870. La seule galette authentique à Gran Canaria.",
+        "cta": "En savoir plus"
+      },
+      "historia": {
+        "title": "Notre histoire",
+        "text": "Une Française loin de chez elle partage avec Las Palmas ce qu'elle aime le plus de la France. Une histoire vraie, une expérience authentique.",
+        "cta": "En savoir plus"
+      }
+    },
+    "galette": {
+      "label": "Bretagne · Depuis 1870",
+      "title": "La galette qui a traversé l'océan.",
+      "text1": "En Bretagne, il existe un moulin actif depuis 1870. C'est là que l'on moud la farine de sarrasin biologique qui voyage jusqu'à Las Palmas de Gran Canaria exclusivement pour Amelie.",
+      "text2": "Ce n'est pas une crêpe. C'est une tradition gastronomique avec des siècles d'histoire. Une recette honnête, avec de vrais ingrédients, préparée comme on l'a toujours fait dans les maisons bretonnes.",
+      "cta": "Voir la carte"
+    },
+    "instagram": {
+      "label": "Suivez-nous",
+      "title": "La vie chez Amelie,\nun détail à la fois.",
+      "handle": "@amelie_cafe_las_palmas",
+      "cta": "Suivre sur Instagram"
+    },
+    "location": {
+      "label": "Où nous trouver",
+      "title": "Nous trouver",
+      "address": "C. Jesús Ferrer Jimeno, 4",
+      "city": "35010 Las Palmas de Gran Canaria",
+      "hours": "Mar–Jeu · 9h30–16h30",
+      "hoursFriSat": "Ven–Sam · 9h30–16h30 et 20h00–23h00",
+      "closed": "Fermé dimanche et lundi",
+      "phone": "+34 928 60 75 70",
+      "ctaReservar": "Réserver une table",
+      "ctaMaps": "Comment y aller"
+    }
+  },
+  "footer": {
+    "tagline": "Une expérience française au cœur de Las Palmas.",
+    "rights": "Tous droits réservés.",
+    "privacy": "Confidentialité",
+    "cookies": "Cookies"
+  }
+}

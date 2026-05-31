@@ -1,0 +1,107 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { useTranslations, useLocale } from 'next-intl';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const slides = [
+  { bg: 'from-stone-800 via-stone-700 to-stone-900', label: 'El local · foto placeholder' },
+  { bg: 'from-neutral-800 via-amber-900/40 to-stone-900', label: 'Los platos · foto placeholder' },
+  { bg: 'from-stone-900 via-stone-800 to-neutral-900', label: 'El ambiente · foto placeholder' },
+];
+
+export default function Hero() {
+  const t = useTranslations('home.hero');
+  const locale = useLocale();
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <section className="relative h-screen min-h-[640px] flex items-center overflow-hidden">
+      {/* Background slides */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={current}
+          className={`absolute inset-0 bg-gradient-to-br ${slides[current].bg}`}
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.2, ease: 'easeInOut' }}
+          aria-hidden
+        >
+          {/* Placeholder label for development */}
+          <div className="absolute bottom-8 right-8 text-white/20 text-xs font-body tracking-widest">
+            {slides[current].label}
+          </div>
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-noir/50" aria-hidden />
+
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full pt-20">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3, ease: 'easeOut' }}
+          className="max-w-3xl"
+        >
+          <p className="text-dore text-xs tracking-[0.3em] uppercase font-body mb-6">
+            Las Palmas de Gran Canaria · Est. 2023
+          </p>
+          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-creme leading-[1.1] mb-6 font-light italic">
+            {t('title')}
+          </h1>
+          <p className="text-creme/70 text-lg md:text-xl font-body font-light leading-relaxed mb-10 max-w-xl">
+            {t('subtitle')}
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link
+              href={`/${locale}/reservar`}
+              className="inline-flex items-center justify-center px-8 py-4 bg-dore text-noir text-sm tracking-widest uppercase font-body hover:bg-dore-dark transition-colors duration-300"
+            >
+              {t('ctaReservar')}
+            </Link>
+            <Link
+              href={`/${locale}/quienes-somos`}
+              className="inline-flex items-center justify-center px-8 py-4 border border-creme/40 text-creme text-sm tracking-widest uppercase font-body hover:border-creme hover:bg-creme/10 transition-all duration-300"
+            >
+              {t('ctaDescubrir')}
+            </Link>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Slide indicators */}
+      <div className="absolute bottom-8 left-6 lg:left-12 flex gap-2 z-10">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`h-px transition-all duration-500 ${
+              i === current ? 'w-12 bg-dore' : 'w-4 bg-creme/30'
+            }`}
+            aria-label={`Slide ${i + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+        animate={{ y: [0, 6, 0] }}
+        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        <div className="w-px h-10 bg-gradient-to-b from-creme/0 to-creme/30" />
+      </motion.div>
+    </section>
+  );
+}
