@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { Gloock, Inter } from 'next/font/google';
-import { NextIntlClientProvider, hasLocale } from 'next-intl';
+import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { routing } from '@/i18n/routing';
+import { locales } from '@/i18n/routing';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import '../globals.css';
@@ -44,13 +44,13 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  if (!hasLocale(routing.locales, locale)) notFound();
+  if (!locales.includes(locale as (typeof locales)[number])) notFound();
   const messages = await getMessages();
 
   return (
     <html lang={locale} className={`${gloock.variable} ${inter.variable}`}>
       <body className="min-h-screen flex flex-col bg-creme text-noir antialiased">
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />
