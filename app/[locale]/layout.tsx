@@ -6,7 +6,6 @@ import { notFound } from 'next/navigation';
 import { locales } from '@/i18n/routing';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
-import '../globals.css';
 
 const gloock = Gloock({
   subsets: ['latin'],
@@ -49,14 +48,12 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${gloock.variable} ${inter.variable}`}>
-      <body className="min-h-screen flex flex-col bg-creme text-noir antialiased">
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <div lang={locale} className={`${gloock.variable} ${inter.variable} min-h-screen flex flex-col bg-creme text-noir antialiased`}>
+      <NextIntlClientProvider locale={locale} messages={messages}>
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </NextIntlClientProvider>
+    </div>
   );
 }
