@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion, useInView } from 'framer-motion';
+import { botanicalBg } from '@/lib/wallpaper';
 
 export default function PhilosophyBlock() {
   const t = useTranslations('home.philosophy');
@@ -10,7 +11,7 @@ export default function PhilosophyBlock() {
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section ref={ref} className="bg-creme py-24 lg:py-36">
+    <section ref={ref} style={botanicalBg} className="py-24 lg:py-36">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Text */}

@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
 import { motion, useInView } from 'framer-motion';
+import { botanicalBg } from '@/lib/wallpaper';
 
 export default function DifferentialsBlock() {
   const t = useTranslations('home.differentials');
@@ -33,7 +34,7 @@ export default function DifferentialsBlock() {
   ] as const;
 
   return (
-    <section ref={ref} className="bg-sable py-24 lg:py-36">
+    <section ref={ref} style={botanicalBg} className="py-24 lg:py-36">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Header */}
         <motion.div

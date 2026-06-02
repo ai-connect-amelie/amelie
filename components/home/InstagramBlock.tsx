@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion, useInView } from 'framer-motion';
+import { botanicalBg } from '@/lib/wallpaper';
 
 const photoSetsLeft = [
   { bg: 'from-stone-300 to-stone-400', label: 'Foto plato 1' },
@@ -87,13 +88,14 @@ function CenterCard({ handle, cta }: { handle: string; cta: string }) {
   );
 }
 
+
 export default function InstagramBlock() {
   const t = useTranslations('home.instagram');
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-60px' });
 
   return (
-    <section ref={ref} className="bg-sable py-24 lg:py-36 overflow-hidden">
+    <section ref={ref} style={botanicalBg} className="py-24 lg:py-36 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Header */}
         <motion.div

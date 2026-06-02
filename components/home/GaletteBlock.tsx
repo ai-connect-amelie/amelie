@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
 import { motion, useInView } from 'framer-motion';
+import { botanicalBg } from '@/lib/wallpaper';
 
 export default function GaletteBlock() {
   const t = useTranslations('home.galette');
@@ -12,7 +13,7 @@ export default function GaletteBlock() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section ref={ref} className="bg-creme py-24 lg:py-36 overflow-hidden">
+    <section ref={ref} style={botanicalBg} className="py-24 lg:py-36 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 

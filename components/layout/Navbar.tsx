@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
@@ -19,6 +19,18 @@ export default function Navbar() {
   const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+  const langRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setLangOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -78,25 +90,37 @@ export default function Navbar() {
 
         {/* Right side */}
         <div className="flex items-center gap-4">
-          {/* Language switcher */}
-          <div className="hidden sm:flex items-center gap-1">
-            {locales.map((l, i) => (
-              <span key={l.code} className="flex items-center">
-                <button
-                  onClick={() => switchLocale(l.code)}
-                  className={`text-xs tracking-widest font-body transition-colors duration-200 ${
-                    locale === l.code
-                      ? 'text-noir font-medium'
-                      : 'text-taupe hover:text-noir'
-                  }`}
-                >
-                  {l.label}
-                </button>
-                {i < locales.length - 1 && (
-                  <span className="text-taupe/40 mx-1">·</span>
-                )}
-              </span>
-            ))}
+          {/* Language switcher dropdown */}
+          <div ref={langRef} className="hidden sm:block relative">
+            <button
+              onClick={() => setLangOpen(!langOpen)}
+              className="flex items-center gap-1.5 text-xs tracking-widest uppercase font-body text-noir/70 hover:text-noir transition-colors duration-200"
+            >
+              {locale.toUpperCase()}
+              <svg
+                className={`w-3 h-3 transition-transform duration-200 ${langOpen ? 'rotate-180' : ''}`}
+                fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            {langOpen && (
+              <div className="absolute right-0 top-full mt-2 bg-creme border border-sable shadow-lg min-w-[80px] z-50">
+                {locales.map((l) => (
+                  <button
+                    key={l.code}
+                    onClick={() => { switchLocale(l.code); setLangOpen(false); }}
+                    className={`w-full text-left px-4 py-2.5 text-xs tracking-widest font-body transition-colors duration-150 ${
+                      locale === l.code
+                        ? 'text-noir bg-sable font-medium'
+                        : 'text-taupe hover:text-noir hover:bg-sable/50'
+                    }`}
+                  >
+                    {l.label}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Reserve CTA */}
