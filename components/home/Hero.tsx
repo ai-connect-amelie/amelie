@@ -1,14 +1,17 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const slides = [
-  { bg: 'from-stone-800 via-stone-700 to-stone-900', label: 'El local · foto placeholder' },
-  { bg: 'from-neutral-800 via-amber-900/40 to-stone-900', label: 'Los platos · foto placeholder' },
-  { bg: 'from-stone-900 via-stone-800 to-neutral-900', label: 'El ambiente · foto placeholder' },
+type Slide = { type: 'image'; src: string } | { type: 'gradient'; bg: string };
+
+const slides: Slide[] = [
+  { type: 'image', src: '/hero1.webp' },
+  { type: 'gradient', bg: 'from-neutral-800 via-amber-900/40 to-stone-900' },
+  { type: 'gradient', bg: 'from-stone-900 via-stone-800 to-neutral-900' },
 ];
 
 export default function Hero() {
@@ -23,28 +26,39 @@ export default function Hero() {
     return () => clearInterval(timer);
   }, []);
 
+  const slide = slides[current];
+
   return (
     <section className="relative h-screen min-h-[640px] flex items-center overflow-hidden">
+
       {/* Background slides */}
       <AnimatePresence mode="wait">
         <motion.div
           key={current}
-          className={`absolute inset-0 bg-gradient-to-br ${slides[current].bg}`}
+          className="absolute inset-0"
           initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.2, ease: 'easeInOut' }}
           aria-hidden
         >
-          {/* Placeholder label for development */}
-          <div className="absolute bottom-8 right-8 text-white/20 text-xs font-body tracking-widest">
-            {slides[current].label}
-          </div>
+          {slide.type === 'image' ? (
+            <Image
+              src={slide.src}
+              alt=""
+              fill
+              className="object-cover object-center"
+              priority
+              sizes="100vw"
+            />
+          ) : (
+            <div className={`absolute inset-0 bg-gradient-to-br ${slide.bg}`} />
+          )}
         </motion.div>
       </AnimatePresence>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-noir/50" aria-hidden />
+      <div className="absolute inset-0 bg-noir/45" aria-hidden />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full pt-20">
