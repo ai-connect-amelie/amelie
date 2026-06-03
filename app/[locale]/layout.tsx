@@ -1,20 +1,11 @@
 import type { Metadata } from 'next';
 import { Gloock, Inter } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { locales } from '@/i18n/routing';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
-
-import esMessages from '@/messages/es.json';
-import frMessages from '@/messages/fr.json';
-import enMessages from '@/messages/en.json';
-
-const messagesMap = {
-  es: esMessages,
-  fr: frMessages,
-  en: enMessages,
-} as const;
 
 const gloock = Gloock({
   subsets: ['latin'],
@@ -52,8 +43,7 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params;
   if (!locales.includes(locale as (typeof locales)[number])) notFound();
-
-  const messages = messagesMap[locale as keyof typeof messagesMap] ?? messagesMap.es;
+  const messages = await getMessages();
 
   return (
     <div lang={locale} className={`${gloock.variable} ${inter.variable} min-h-screen flex flex-col bg-creme text-noir antialiased`}>
