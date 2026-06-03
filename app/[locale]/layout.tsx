@@ -10,7 +10,11 @@ import esMessages from '@/messages/es.json';
 import frMessages from '@/messages/fr.json';
 import enMessages from '@/messages/en.json';
 
-const messagesMap = { es: esMessages, fr: frMessages, en: enMessages };
+const messagesMap = {
+  es: esMessages,
+  fr: frMessages,
+  en: enMessages,
+} as const;
 
 const gloock = Gloock({
   subsets: ['latin'],
