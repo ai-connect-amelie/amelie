@@ -1,11 +1,16 @@
 import type { Metadata } from 'next';
 import { Gloock, Inter } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, unstable_setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { locales } from '@/i18n/routing';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+
+import esMessages from '@/messages/es.json';
+import frMessages from '@/messages/fr.json';
+import enMessages from '@/messages/en.json';
+
+const messagesMap = { es: esMessages, fr: frMessages, en: enMessages };
 
 const gloock = Gloock({
   subsets: ['latin'],
@@ -27,7 +32,6 @@ export const metadata: Metadata = {
     template: '%s | Amélie Restaurant',
   },
   description: 'Restaurante francés auténtico en Las Palmas. Galette bretonne, pan artesano y una experiencia cultural única en Gran Canaria.',
-  keywords: ['restaurante francés Las Palmas', 'galette bretonne Canarias', 'brunch francés Las Palmas', 'gastronomía francesa Gran Canaria'],
   openGraph: {
     type: 'website',
     locale: 'es_ES',
@@ -44,8 +48,8 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params;
   if (!locales.includes(locale as (typeof locales)[number])) notFound();
-  unstable_setRequestLocale(locale);
-  const messages = await getMessages();
+
+  const messages = messagesMap[locale as keyof typeof messagesMap] ?? messagesMap.es;
 
   return (
     <div lang={locale} className={`${gloock.variable} ${inter.variable} min-h-screen flex flex-col bg-creme text-noir antialiased`}>
