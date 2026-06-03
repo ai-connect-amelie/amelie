@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Gloock, Inter } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages, unstable_setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { locales } from '@/i18n/routing';
 import Navbar from '@/components/layout/Navbar';
@@ -34,6 +34,10 @@ export const metadata: Metadata = {
   },
 };
 
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
 export default async function LocaleLayout({
   children,
   params,
@@ -43,6 +47,10 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params;
   if (!locales.includes(locale as (typeof locales)[number])) notFound();
+
+  // Tells next-intl the locale without needing middleware
+  unstable_setRequestLocale(locale);
+
   const messages = await getMessages();
 
   return (
