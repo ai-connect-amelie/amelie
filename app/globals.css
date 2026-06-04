@@ -41,17 +41,21 @@ h1, h2, h3, h4 {
 
 /* Fondo acuarela lavanda — móvil */
 .wallpaper-section {
+  background-color: #EEE9E2;
   background-image: url('/lavanda_movil.png');
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-size: 100% auto;
+  background-position: top center;
   background-attachment: scroll;
 }
 
-/* Tablet y escritorio — imagen horizontal */
+/* Tablet y escritorio — imagen horizontal con parallax */
 @media (min-width: 768px) {
   .wallpaper-section {
+    background-color: transparent;
     background-image: url('/lavanda.png');
+    background-size: cover;
+    background-position: center;
     background-attachment: fixed;
   }
 }
