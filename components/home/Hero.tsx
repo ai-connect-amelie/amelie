@@ -9,9 +9,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 type Slide = { type: 'image'; src: string } | { type: 'gradient'; bg: string };
 
 const slides: Slide[] = [
+  { type: 'image', src: '/382942.png' },
   { type: 'image', src: '/hero1.webp' },
   { type: 'gradient', bg: 'from-neutral-800 via-amber-900/40 to-stone-900' },
-  { type: 'gradient', bg: 'from-stone-900 via-stone-800 to-neutral-900' },
 ];
 
 export default function Hero() {
@@ -57,8 +57,10 @@ export default function Hero() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-noir/45" aria-hidden />
+      {/* Overlay suave — adapta según si el slide es claro u oscuro */}
+      <div className={`absolute inset-0 transition-colors duration-1000 ${
+        current === 0 ? 'bg-white/20' : 'bg-noir/45'
+      }`} aria-hidden />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full pt-20">
@@ -68,13 +70,19 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.3, ease: 'easeOut' }}
           className="max-w-3xl"
         >
-          <p className="text-dore text-xs tracking-[0.3em] uppercase font-body mb-6">
+          <p className={`text-xs tracking-[0.3em] uppercase font-body mb-6 transition-colors duration-700 ${
+            current === 0 ? 'text-dore-dark' : 'text-dore'
+          }`}>
             Las Palmas de Gran Canaria · Est. 2023
           </p>
-          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-creme leading-[1.1] mb-6 font-light italic">
+          <h1 className={`font-display text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6 font-light transition-colors duration-700 ${
+            current === 0 ? 'text-noir' : 'text-creme'
+          }`}>
             {t('title')}
           </h1>
-          <p className="text-creme/70 text-lg md:text-xl font-body font-light leading-relaxed mb-10 max-w-xl">
+          <p className={`text-lg md:text-xl font-body font-light leading-relaxed mb-10 max-w-xl transition-colors duration-700 ${
+            current === 0 ? 'text-noir/70' : 'text-creme/70'
+          }`}>
             {t('subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
@@ -86,7 +94,11 @@ export default function Hero() {
             </Link>
             <Link
               href={`/${locale}/quienes-somos`}
-              className="inline-flex items-center justify-center px-8 py-4 border border-creme/40 text-creme text-sm tracking-widest uppercase font-body hover:border-creme hover:bg-creme/10 transition-all duration-300"
+              className={`inline-flex items-center justify-center px-8 py-4 border text-sm tracking-widest uppercase font-body transition-all duration-300 ${
+                current === 0
+                  ? 'border-noir/40 text-noir hover:bg-noir/10'
+                  : 'border-creme/40 text-creme hover:border-creme hover:bg-creme/10'
+              }`}
             >
               {t('ctaDescubrir')}
             </Link>
@@ -101,7 +113,7 @@ export default function Hero() {
             key={i}
             onClick={() => setCurrent(i)}
             className={`h-px transition-all duration-500 ${
-              i === current ? 'w-12 bg-dore' : 'w-4 bg-creme/30'
+              i === current ? 'w-12 bg-dore' : 'w-4 bg-noir/30'
             }`}
             aria-label={`Slide ${i + 1}`}
           />
@@ -114,7 +126,7 @@ export default function Hero() {
         animate={{ y: [0, 6, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
       >
-        <div className="w-px h-10 bg-gradient-to-b from-creme/0 to-creme/30" />
+        <div className={`w-px h-10 bg-gradient-to-b from-transparent ${current === 0 ? 'to-noir/30' : 'to-creme/30'}`} />
       </motion.div>
     </section>
   );
