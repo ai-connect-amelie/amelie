@@ -1,8 +1,7 @@
 export const botanicalBg: React.CSSProperties = {
-  backgroundColor: '#EDE7DC',
-  backgroundImage: "url('/botanical-pattern.svg')",
+  backgroundImage: "url('/382941.png')",
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
-  backgroundPosition: 'center top',
+  backgroundPosition: 'center',
   backgroundAttachment: 'fixed',
 };
