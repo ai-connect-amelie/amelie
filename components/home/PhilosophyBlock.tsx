@@ -20,13 +20,13 @@ export default function PhilosophyBlock() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.9, ease: 'easeOut' }}
           >
-            <p className="text-dore text-xs tracking-[0.3em] uppercase font-body mb-6">
+            <p className="text-noir/50 text-xs tracking-[0.3em] uppercase font-body mb-6">
               {t('label')}
             </p>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-noir leading-[1.15] font-light italic mb-8">
               {t('title')}
             </h2>
-            <p className="text-taupe text-lg font-body font-light leading-relaxed">
+            <p className="text-noir/75 text-lg font-body font-light leading-relaxed">
               {t('text')}
             </p>
           </motion.div>

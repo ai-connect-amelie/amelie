@@ -43,17 +43,17 @@ export default function GaletteBlock() {
             transition={{ duration: 0.9, delay: 0.2, ease: 'easeOut' }}
             className="order-1 lg:order-2"
           >
-            <p className="text-dore text-xs tracking-[0.3em] uppercase font-body mb-6">
+            <p className="text-noir/50 text-xs tracking-[0.3em] uppercase font-body mb-6">
               {t('label')}
             </p>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-noir leading-[1.1] font-light italic mb-8">
               {t('title')}
             </h2>
             <div className="space-y-5 mb-10">
-              <p className="text-taupe text-base font-body font-light leading-relaxed">
+              <p className="text-noir/75 text-base font-body font-light leading-relaxed">
                 {t('text1')}
               </p>
-              <p className="text-taupe text-base font-body font-light leading-relaxed">
+              <p className="text-noir/75 text-base font-body font-light leading-relaxed">
                 {t('text2')}
               </p>
             </div>

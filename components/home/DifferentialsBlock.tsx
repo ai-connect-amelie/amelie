@@ -43,7 +43,7 @@ export default function DifferentialsBlock() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16 lg:mb-20"
         >
-          <p className="text-dore text-xs tracking-[0.3em] uppercase font-body mb-4">
+          <p className="text-noir/50 text-xs tracking-[0.3em] uppercase font-body mb-4">
             {t('label')}
           </p>
           <h2 className="font-display text-4xl md:text-5xl text-noir font-light italic">
@@ -61,7 +61,7 @@ export default function DifferentialsBlock() {
               transition={{ duration: 0.8, delay: i * 0.15 }}
               className="bg-creme p-10 lg:p-12 flex flex-col group hover:bg-noir transition-colors duration-500"
             >
-              <span className="text-xs tracking-[0.3em] text-dore font-body mb-8">
+              <span className="text-xs tracking-[0.3em] text-noir/40 font-body mb-8">
                 {card.number}
               </span>
 
@@ -75,7 +75,7 @@ export default function DifferentialsBlock() {
               <h3 className="font-display text-2xl lg:text-3xl text-noir group-hover:text-creme font-light italic mb-4 transition-colors duration-500">
                 {t(`${card.key}.title`)}
               </h3>
-              <p className="text-taupe text-sm font-body font-light leading-relaxed mb-8 flex-1 group-hover:text-creme/60 transition-colors duration-500">
+              <p className="text-noir/70 text-sm font-body font-light leading-relaxed mb-8 flex-1 group-hover:text-creme/60 transition-colors duration-500">
                 {t(`${card.key}.text`)}
               </p>
               <Link
