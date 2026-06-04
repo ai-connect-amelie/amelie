@@ -9,10 +9,13 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <PhilosophyBlock />
-      <DifferentialsBlock />
-      <GaletteBlock />
-      <InstagramBlock />
+      {/* Un solo contenedor con el fondo — así el background es continuo en móvil y desktop */}
+      <div className="wallpaper-section">
+        <PhilosophyBlock />
+        <DifferentialsBlock />
+        <GaletteBlock />
+        <InstagramBlock />
+      </div>
       <LocationBlock />
     </>
   );

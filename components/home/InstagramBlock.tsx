@@ -95,7 +95,7 @@ export default function InstagramBlock() {
   const inView = useInView(ref, { once: true, margin: '-60px' });
 
   return (
-    <section ref={ref} className="wallpaper-section py-24 lg:py-36 overflow-hidden">
+    <section ref={ref} className="py-24 lg:py-36 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Header */}
         <motion.div
