@@ -1,9 +1,9 @@
 'use client';
 
 import { useRef } from 'react';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { motion, useInView } from 'framer-motion';
-import { botanicalBg } from '@/lib/wallpaper';
 
 export default function PhilosophyBlock() {
   const t = useTranslations('home.philosophy');
@@ -31,23 +31,23 @@ export default function PhilosophyBlock() {
             </p>
           </motion.div>
 
-          {/* Image placeholder */}
+          {/* Image */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.2, ease: 'easeOut' }}
-            className="relative aspect-[4/5] bg-sable flex items-center justify-center"
+            className="relative w-full aspect-[4/5] overflow-hidden"
           >
-            <div className="text-center">
-              <div className="w-16 h-px bg-dore mx-auto mb-4" />
-              <p className="text-taupe/50 text-xs tracking-widest uppercase font-body">
-                Fotografía del local
-              </p>
-              <div className="w-16 h-px bg-dore mx-auto mt-4" />
-            </div>
-            {/* Decorative corner */}
-            <div className="absolute top-4 left-4 w-8 h-8 border-t border-l border-dore/40" />
-            <div className="absolute bottom-4 right-4 w-8 h-8 border-b border-r border-dore/40" />
+            <Image
+              src="/home1.webp"
+              alt="Amelie Restaurant"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+            {/* Decorative corners */}
+            <div className="absolute top-4 left-4 w-8 h-8 border-t border-l border-dore/60 z-10" />
+            <div className="absolute bottom-4 right-4 w-8 h-8 border-b border-r border-dore/60 z-10" />
           </motion.div>
         </div>
       </div>
