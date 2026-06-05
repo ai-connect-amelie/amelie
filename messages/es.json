@@ -52,6 +52,25 @@
       "text2": "No es una crepe. Es una tradición gastronómica con siglos de historia. Una receta honesta, de ingredientes reales, elaborada como se ha hecho siempre en las casas bretonas.",
       "cta": "Ver la carta"
     },
+    "manifesto": {
+      "l1a": "Aquí no se viene",
+      "l1b": "corriendo.",
+      "l2a": "Se llega con",
+      "l2b": "tiempo,",
+      "l3a": "se come",
+      "l3b": "despacio,",
+      "l4a": "y se sale",
+      "l4b": "contento."
+    },
+    "kilometro": {
+      "label": "Km.0 · De temporada",
+      "title": "Del campo de Canarias,\ncon manos de Francia.",
+      "text": "No hay menú fijo. Hay lo que el mercado nos da hoy. Productos locales de Gran Canaria elaborados con técnica y recetas francesas. Canarias pone la tierra. Francia pone el alma. El resultado es Amelie.",
+      "pill1": "Km.0 local",
+      "pill2": "De temporada",
+      "pill3": "Receta francesa",
+      "caption": "Ingredientes de temporada · Gran Canaria"
+    },
     "instagram": {
       "label": "Síguenos",
       "title": "La vida en Amelie,\nun detalle a la vez.",

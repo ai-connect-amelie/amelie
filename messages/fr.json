@@ -52,6 +52,25 @@
       "text2": "Ce n'est pas une crêpe. C'est une tradition gastronomique avec des siècles d'histoire. Une recette honnête, avec de vrais ingrédients, préparée comme on l'a toujours fait dans les maisons bretonnes.",
       "cta": "Voir la carte"
     },
+    "manifesto": {
+      "l1a": "Ici, on ne vient pas",
+      "l1b": "en courant.",
+      "l2a": "On arrive avec",
+      "l2b": "du temps,",
+      "l3a": "on mange",
+      "l3b": "doucement,",
+      "l4a": "et on repart",
+      "l4b": "heureux."
+    },
+    "kilometro": {
+      "label": "Km.0 · De saison",
+      "title": "Des champs des Canaries,\navec les mains de France.",
+      "text": "Il n'y a pas de menu fixe. Il y a ce que le marché local nous offre aujourd'hui. Des produits des Canaries élaborés avec technique et recettes françaises. Les Canaries apportent la terre. La France apporte l'âme.",
+      "pill1": "Km.0 local",
+      "pill2": "De saison",
+      "pill3": "Recette française",
+      "caption": "Ingrédients de saison · Gran Canaria"
+    },
     "instagram": {
       "label": "Suivez-nous",
       "title": "La vie chez Amelie,\nun détail à la fois.",

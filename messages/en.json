@@ -52,6 +52,25 @@
       "text2": "It's not a crepe. It's a gastronomic tradition with centuries of history. An honest recipe, with real ingredients, made as it has always been done in Breton homes.",
       "cta": "View the menu"
     },
+    "manifesto": {
+      "l1a": "You don't come here",
+      "l1b": "in a rush.",
+      "l2a": "You arrive with",
+      "l2b": "time,",
+      "l3a": "eat",
+      "l3b": "slowly,",
+      "l4a": "and leave",
+      "l4b": "content."
+    },
+    "kilometro": {
+      "label": "Km.0 · Seasonal",
+      "title": "From the Canary Islands fields,\nthrough French hands.",
+      "text": "There is no fixed menu. There is what the local market gives us today. Local produce from Gran Canaria crafted with French technique and recipes. The Canary Islands provide the land. France provides the soul.",
+      "pill1": "Km.0 local",
+      "pill2": "Seasonal",
+      "pill3": "French recipe",
+      "caption": "Seasonal ingredients · Gran Canaria"
+    },
     "instagram": {
       "label": "Follow us",
       "title": "Life at Amelie,\none detail at a time.",

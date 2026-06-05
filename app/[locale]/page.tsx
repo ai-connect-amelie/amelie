@@ -1,6 +1,8 @@
 import Hero from '@/components/home/Hero';
 import PhilosophyBlock from '@/components/home/PhilosophyBlock';
+import ManifestoBlock from '@/components/home/ManifestoBlock';
 import DifferentialsBlock from '@/components/home/DifferentialsBlock';
+import KilometroBlock from '@/components/home/KilometroBlock';
 import GaletteBlock from '@/components/home/GaletteBlock';
 import InstagramBlock from '@/components/home/InstagramBlock';
 import LocationBlock from '@/components/home/LocationBlock';
@@ -12,7 +14,9 @@ export default function HomePage() {
       <Hero />
       <WallpaperSection>
         <PhilosophyBlock />
+        <ManifestoBlock />
         <DifferentialsBlock />
+        <KilometroBlock />
         <GaletteBlock />
         <InstagramBlock />
       </WallpaperSection>
