@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { motion, useInView } from 'framer-motion';
 
@@ -41,33 +42,23 @@ export default function KilometroBlock() {
             </div>
           </motion.div>
 
-          {/* Visual placeholder */}
+          {/* Image */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.2, ease: 'easeOut' }}
-            className="relative aspect-[4/5] bg-sable flex flex-col items-center justify-center gap-6 overflow-hidden"
+            className="relative w-full aspect-[4/5] overflow-hidden"
           >
-            {/* Large decorative text */}
-            <p
-              className="font-display text-[120px] lg:text-[160px] text-dore/10 leading-none select-none absolute"
-              aria-hidden
-            >
-              0
-            </p>
-            {/* Content */}
-            <div className="relative text-center z-10">
-              <div className="w-px h-12 bg-dore/30 mx-auto mb-6" />
-              <p className="font-display text-2xl text-noir/30 italic font-light">Km</p>
-              <p className="font-display text-6xl text-dore/40 font-light leading-none">.0</p>
-              <div className="w-px h-12 bg-dore/30 mx-auto mt-6" />
-            </div>
-            <p className="relative z-10 text-taupe/50 text-xs tracking-widest uppercase font-body text-center px-8">
-              {t('caption')}
-            </p>
+            <Image
+              src="/km0.webp"
+              alt="Producto de temporada Km 0"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
             {/* Corner decorations */}
-            <div className="absolute top-6 left-6 w-8 h-8 border-t border-l border-dore/30" />
-            <div className="absolute bottom-6 right-6 w-8 h-8 border-b border-r border-dore/30" />
+            <div className="absolute top-6 left-6 w-8 h-8 border-t border-l border-dore/60 z-10" />
+            <div className="absolute bottom-6 right-6 w-8 h-8 border-b border-r border-dore/60 z-10" />
           </motion.div>
 
         </div>
