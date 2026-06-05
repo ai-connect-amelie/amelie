@@ -4,18 +4,18 @@ import DifferentialsBlock from '@/components/home/DifferentialsBlock';
 import GaletteBlock from '@/components/home/GaletteBlock';
 import InstagramBlock from '@/components/home/InstagramBlock';
 import LocationBlock from '@/components/home/LocationBlock';
+import WallpaperSection from '@/components/home/WallpaperSection';
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      {/* Un solo contenedor con el fondo — así el background es continuo en móvil y desktop */}
-      <div className="wallpaper-section">
+      <WallpaperSection>
         <PhilosophyBlock />
         <DifferentialsBlock />
         <GaletteBlock />
         <InstagramBlock />
-      </div>
+      </WallpaperSection>
       <LocationBlock />
     </>
   );
