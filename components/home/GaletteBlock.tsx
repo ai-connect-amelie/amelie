@@ -1,10 +1,10 @@
 'use client';
 
 import { useRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
 import { motion, useInView } from 'framer-motion';
-import { botanicalBg } from '@/lib/wallpaper';
 
 export default function GaletteBlock() {
   const t = useTranslations('home.galette');
@@ -17,23 +17,23 @@ export default function GaletteBlock() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
-          {/* Image placeholder — full bleed style */}
+          {/* Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.97 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 1, ease: 'easeOut' }}
-            className="relative aspect-[3/4] bg-sable order-2 lg:order-1"
+            className="relative w-full aspect-[3/4] overflow-hidden order-2 lg:order-1"
           >
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-              <div className="w-20 h-px bg-dore/60" />
-              <p className="text-taupe/40 text-xs tracking-widest uppercase font-body text-center px-8">
-                Fotografía galette bretonne
-              </p>
-              <div className="w-20 h-px bg-dore/60" />
-            </div>
+            <Image
+              src="/harina.webp"
+              alt="Harina de Bretaña desde 1870"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
             {/* Corner decorations */}
-            <div className="absolute top-6 left-6 w-10 h-10 border-t-2 border-l-2 border-dore/30" />
-            <div className="absolute bottom-6 right-6 w-10 h-10 border-b-2 border-r-2 border-dore/30" />
+            <div className="absolute top-6 left-6 w-10 h-10 border-t-2 border-l-2 border-dore/60 z-10" />
+            <div className="absolute bottom-6 right-6 w-10 h-10 border-b-2 border-r-2 border-dore/60 z-10" />
           </motion.div>
 
           {/* Text */}
