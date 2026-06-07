@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 type Slide = { type: 'image'; src: string } | { type: 'gradient'; bg: string };
 
@@ -32,31 +32,27 @@ export default function Hero() {
   return (
     <section className="relative h-screen min-h-[640px] flex items-center overflow-hidden">
 
-      {/* Background slides */}
-      <AnimatePresence mode="wait">
+      {/* Background slides — crossfade, todas montadas a la vez */}
+      {slides.map((s, i) => (
         <motion.div
-          key={current}
+          key={i}
           className="absolute inset-0"
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1.2, ease: 'easeInOut' }}
+          animate={{ opacity: i === current ? 1 : 0 }}
+          transition={{ duration: 1.4, ease: 'easeInOut' }}
           aria-hidden
         >
-          {slide.type === 'image' ? (
+          {s.type === 'image' ? (
             <Image
-              src={slide.src}
+              src={s.src}
               alt=""
               fill
               className="object-cover object-center"
-              priority
+              priority={i === 0}
               sizes="100vw"
             />
-          ) : (
-            <div className={`absolute inset-0 bg-gradient-to-br ${slide.bg}`} />
-          )}
+          ) : null}
         </motion.div>
-      </AnimatePresence>
+      ))}
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-noir/45" aria-hidden />
