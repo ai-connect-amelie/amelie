@@ -39,22 +39,38 @@ h1, h2, h3, h4 {
   font-family: var(--font-display);
 }
 
-/* Fondo acuarela lavanda — mobile */
+/* Fondo acuarela — mobile */
 .wallpaper-wrapper {
+  position: relative;
   background-color: #EEE9E2;
+}
+
+.wallpaper-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
   background-image: url('/lavanda_movil.png');
   background-repeat: repeat-y;
   background-size: 100% auto;
   background-position: top center;
+  filter: hue-rotate(-25deg) saturate(0.75);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.wallpaper-wrapper > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Desktop: imagen horizontal fija */
 @media (min-width: 768px) {
-  .wallpaper-wrapper {
+  .wallpaper-wrapper::before {
     background-image: url('/lavanda.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    background-repeat: no-repeat;
   }
 }
 
