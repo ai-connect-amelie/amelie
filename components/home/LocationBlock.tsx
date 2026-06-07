@@ -10,6 +10,9 @@ export default function LocationBlock() {
   const locale = useLocale();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
+  // Cargar el mapa mucho antes de que sea visible
+  const mapRef = useRef(null);
+  const mapReady = useInView(mapRef, { once: true, margin: '400px' });
 
   return (
     <section ref={ref} className="py-24 lg:py-36">
@@ -46,21 +49,23 @@ export default function LocationBlock() {
         </motion.div>
 
         <motion.div
+          ref={mapRef}
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.9, delay: 0.15 }}
-          className="w-full h-[400px] md:h-[500px] lg:h-[560px] overflow-hidden"
+          className="w-full h-[400px] md:h-[500px] lg:h-[560px] overflow-hidden bg-sable"
         >
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3526.0!2d-15.4358273!3d28.1331258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc4095ca491b0e0f%3A0xa7eb6f70d4443dd7!2sAmelie%20Caf%C3%A9!5e0!3m2!1ses!2ses!4v1"
-            width="100%"
-            height="100%"
-            style={{ border: 0, filter: 'grayscale(20%) contrast(1.05)' }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="Amelie Restaurant — Ubicación"
-          />
+          {mapReady && (
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3526.0!2d-15.4358273!3d28.1331258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc4095ca491b0e0f%3A0xa7eb6f70d4443dd7!2sAmelie%20Caf%C3%A9!5e0!3m2!1ses!2ses!4v1"
+              width="100%"
+              height="100%"
+              style={{ border: 0, filter: 'grayscale(20%) contrast(1.05)' }}
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Amelie Restaurant — Ubicación"
+            />
+          )}
         </motion.div>
 
       </div>
