@@ -71,10 +71,10 @@ export default function Hero() {
           <p className="text-dore text-xs tracking-[0.3em] uppercase font-body mb-6">
             Las Palmas de Gran Canaria · Est. 2023
           </p>
-          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-creme leading-[1.1] mb-6 font-light">
+          <h1 className="font-display italic text-5xl md:text-6xl lg:text-7xl text-creme leading-[1.1] mb-6 font-light">
             {t('title')}
           </h1>
-          <p className="text-creme/70 text-lg md:text-xl font-body font-light leading-relaxed mb-10 max-w-xl">
+          <p className="text-creme/65 text-base md:text-lg font-body font-light leading-relaxed mb-10 max-w-lg tracking-wide">
             {t('subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
