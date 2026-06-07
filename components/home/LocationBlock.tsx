@@ -12,7 +12,7 @@ export default function LocationBlock() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section ref={ref} className="bg-creme py-24 lg:py-36">
+    <section ref={ref} className="py-24 lg:py-36">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
         <motion.div

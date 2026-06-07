@@ -19,8 +19,8 @@ export default function HomePage() {
         <KilometroBlock />
         <GaletteBlock />
         <InstagramBlock />
+        <LocationBlock />
       </WallpaperSection>
-      <LocationBlock />
     </>
   );
 }
