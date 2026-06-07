@@ -70,7 +70,7 @@ export default function Navbar() {
             alt="Amélie Restaurant"
             width={180}
             height={48}
-            className="h-10 w-auto object-contain block"
+            className="h-10 lg:h-12 w-auto object-contain block"
             priority
           />
         </Link>
