@@ -15,9 +15,9 @@ export default function Footer() {
           {/* Col 1 — Logo + Dirección + Horario */}
           <div className="flex flex-col gap-6">
             <Image
-              src="/logo-light.jpeg"
+              src="/logo-horizontal.png"
               alt="Amélie Restaurant"
-              width={140}
+              width={210}
               height={56}
               className="h-14 w-auto object-contain brightness-0 invert opacity-75"
             />

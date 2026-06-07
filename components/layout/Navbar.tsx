@@ -66,9 +66,9 @@ export default function Navbar() {
         {/* Logo */}
         <Link href={`/${locale}`} className="flex items-center">
           <Image
-            src="/logo-light.jpeg"
+            src="/logo-horizontal.png"
             alt="Amélie Restaurant"
-            width={120}
+            width={180}
             height={48}
             className="h-12 w-auto object-contain"
             priority
