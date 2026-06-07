@@ -10,8 +10,9 @@ type Slide = { type: 'image'; src: string } | { type: 'gradient'; bg: string };
 
 const slides: Slide[] = [
   { type: 'image', src: '/hero1.webp' },
-  { type: 'gradient', bg: 'from-neutral-800 via-amber-900/40 to-stone-900' },
-  { type: 'gradient', bg: 'from-stone-900 via-stone-800 to-neutral-900' },
+  { type: 'image', src: '/hero2.webp' },
+  { type: 'image', src: '/hero3.webp' },
+  { type: 'image', src: '/hero4.webp' },
 ];
 
 export default function Hero() {
