@@ -84,12 +84,6 @@ export default function Hero() {
             >
               {t('ctaReservar')}
             </Link>
-            <Link
-              href={`/${locale}/quienes-somos`}
-              className="inline-flex items-center justify-center px-8 py-4 border border-creme/40 text-creme text-sm tracking-widest uppercase font-body hover:border-creme hover:bg-creme/10 transition-all duration-300"
-            >
-              {t('ctaDescubrir')}
-            </Link>
           </div>
         </motion.div>
       </div>
