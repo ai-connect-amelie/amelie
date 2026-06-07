@@ -62,15 +62,15 @@ export default function Navbar() {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto pl-3 pr-6 lg:pl-6 lg:pr-12 flex items-center justify-between h-20">
+      <div className="w-full pl-4 pr-6 lg:pl-8 lg:pr-10 flex items-center justify-between h-20">
         {/* Logo */}
-        <Link href={`/${locale}`} className="flex items-center">
+        <Link href={`/${locale}`} className="flex items-center self-center">
           <Image
             src="/logo-horizontal.png"
             alt="Amélie Restaurant"
             width={180}
             height={48}
-            className="h-12 w-auto object-contain"
+            className="h-10 w-auto object-contain block"
             priority
           />
         </Link>
