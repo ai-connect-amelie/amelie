@@ -3,12 +3,16 @@
 import { useRef } from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 
 export default function KilometroBlock() {
   const t = useTranslations('home.kilometro');
   const ref = useRef(null);
+  const imgRef = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
+
+  const { scrollYProgress } = useScroll({ target: imgRef, offset: ['start end', 'end start'] });
+  const x = useTransform(scrollYProgress, [0, 1], ['8%', '-8%']);
 
   return (
     <section ref={ref} className="py-24 lg:py-36">
@@ -42,25 +46,20 @@ export default function KilometroBlock() {
             </div>
           </motion.div>
 
-          {/* Image */}
-          <div className="relative w-full aspect-[4/5] overflow-hidden">
-            <Image
-              src="/km0.webp"
-              alt="Producto de temporada Km 0"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-            {/* Reveal curtain */}
-            <motion.div
-              className="absolute inset-0 bg-noir origin-left z-10"
-              initial={{ scaleX: 1 }}
-              animate={inView ? { scaleX: 0 } : {}}
-              transition={{ duration: 1, delay: 0.3, ease: [0.76, 0, 0.24, 1] }}
-            />
+          {/* Image con parallax horizontal inverso */}
+          <div ref={imgRef} className="relative w-full aspect-[4/5] overflow-hidden">
+            <motion.div className="absolute inset-0" style={{ x }}>
+              <Image
+                src="/km0.webp"
+                alt="Producto de temporada Km 0"
+                fill
+                className="object-cover scale-110"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </motion.div>
             {/* Corner decorations */}
-            <div className="absolute top-6 left-6 w-8 h-8 border-t border-l border-dore/60 z-20" />
-            <div className="absolute bottom-6 right-6 w-8 h-8 border-b border-r border-dore/60 z-20" />
+            <div className="absolute top-6 left-6 w-8 h-8 border-t border-l border-dore/60 z-10" />
+            <div className="absolute bottom-6 right-6 w-8 h-8 border-b border-r border-dore/60 z-10" />
           </div>
 
         </div>

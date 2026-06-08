@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 
 const carouselImages = ['/harina.webp', '/388054.webp'];
 
@@ -12,8 +12,12 @@ export default function GaletteBlock() {
   const t = useTranslations('home.galette');
   const locale = useLocale();
   const ref = useRef(null);
+  const imgRef = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
   const [current, setCurrent] = useState(0);
+
+  const { scrollYProgress } = useScroll({ target: imgRef, offset: ['start end', 'end start'] });
+  const x = useTransform(scrollYProgress, [0, 1], ['-8%', '8%']);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -27,8 +31,8 @@ export default function GaletteBlock() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
-          {/* Carrusel */}
-          <div className="relative w-full aspect-[3/4] overflow-hidden order-2 lg:order-1">
+          {/* Carrusel con parallax horizontal */}
+          <div ref={imgRef} className="relative w-full aspect-[3/4] overflow-hidden order-2 lg:order-1">
             {carouselImages.map((src, i) => (
               <motion.div
                 key={i}
@@ -36,13 +40,15 @@ export default function GaletteBlock() {
                 animate={{ opacity: i === current ? 1 : 0 }}
                 transition={{ duration: 1.2, ease: 'easeInOut' }}
               >
-                <Image
-                  src={src}
-                  alt="Bretaña desde 1870"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
+                <motion.div className="absolute inset-0" style={{ x }}>
+                  <Image
+                    src={src}
+                    alt="Bretaña desde 1870"
+                    fill
+                    className="object-cover scale-110"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                </motion.div>
               </motion.div>
             ))}
             {/* Dots */}
@@ -56,16 +62,9 @@ export default function GaletteBlock() {
                 />
               ))}
             </div>
-            {/* Reveal curtain */}
-            <motion.div
-              className="absolute inset-0 bg-noir origin-left z-20"
-              initial={{ scaleX: 1 }}
-              animate={inView ? { scaleX: 0 } : {}}
-              transition={{ duration: 1, delay: 0.3, ease: [0.76, 0, 0.24, 1] }}
-            />
             {/* Corner decorations */}
-            <div className="absolute top-6 left-6 w-10 h-10 border-t-2 border-l-2 border-dore/60 z-30" />
-            <div className="absolute bottom-6 right-6 w-10 h-10 border-b-2 border-r-2 border-dore/60 z-30" />
+            <div className="absolute top-6 left-6 w-10 h-10 border-t-2 border-l-2 border-dore/60 z-10" />
+            <div className="absolute bottom-6 right-6 w-10 h-10 border-b-2 border-r-2 border-dore/60 z-10" />
           </div>
 
           {/* Text */}
