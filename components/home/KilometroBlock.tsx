@@ -17,8 +17,8 @@ export default function KilometroBlock() {
 
           {/* Text */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.9, ease: 'easeOut' }}
           >
             <p className="text-noir/50 text-xs tracking-[0.3em] uppercase font-body mb-6">
@@ -53,7 +53,7 @@ export default function KilometroBlock() {
             />
             {/* Reveal curtain */}
             <motion.div
-              className="absolute inset-0 bg-sable origin-left z-10"
+              className="absolute inset-0 bg-noir origin-left z-10"
               initial={{ scaleX: 1 }}
               animate={inView ? { scaleX: 0 } : {}}
               transition={{ duration: 1, delay: 0.3, ease: [0.76, 0, 0.24, 1] }}

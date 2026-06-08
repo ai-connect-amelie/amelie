@@ -58,7 +58,7 @@ export default function GaletteBlock() {
             </div>
             {/* Reveal curtain */}
             <motion.div
-              className="absolute inset-0 bg-sable origin-left z-20"
+              className="absolute inset-0 bg-noir origin-left z-20"
               initial={{ scaleX: 1 }}
               animate={inView ? { scaleX: 0 } : {}}
               transition={{ duration: 1, delay: 0.3, ease: [0.76, 0, 0.24, 1] }}
@@ -70,8 +70,8 @@ export default function GaletteBlock() {
 
           {/* Text */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.9, delay: 0.2, ease: 'easeOut' }}
             className="order-1 lg:order-2"
           >
