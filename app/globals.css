@@ -46,16 +46,7 @@ h1, h2, h3, h4 {
 }
 
 .wallpaper-wrapper::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('/lavanda_movil.png');
-  background-repeat: repeat-y;
-  background-size: 100% auto;
-  background-position: top center;
-  filter: hue-rotate(-25deg) saturate(0.75);
-  pointer-events: none;
-  z-index: 0;
+  content: none;
 }
 
 .wallpaper-wrapper > * {
@@ -66,9 +57,7 @@ h1, h2, h3, h4 {
 /* Desktop: imagen horizontal fija */
 @media (min-width: 768px) {
   .wallpaper-wrapper::before {
-    background-image: url('/lavanda.png');
-    background-size: cover;
-    background-position: center;
+    content: none;
     background-attachment: fixed;
     background-repeat: no-repeat;
   }
