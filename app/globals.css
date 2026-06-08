@@ -42,7 +42,7 @@ h1, h2, h3, h4 {
 /* Fondo acuarela — mobile */
 .wallpaper-wrapper {
   position: relative;
-  background-color: #EEE9E2;
+  background-color: #F2E8C4;
 }
 
 .wallpaper-wrapper::before {
