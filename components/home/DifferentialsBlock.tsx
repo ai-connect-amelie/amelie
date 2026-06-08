@@ -15,7 +15,7 @@ export default function DifferentialsBlock() {
   const cards = [
     { key: 'pan',     number: '01', href: '/quienes-somos', photo: '/388063.webp' },
     { key: 'galette', number: '02', href: '/carta',         photo: '/388071-_1_.webp' },
-    { key: 'historia',number: '03', href: '/quienes-somos', photo: null },
+    { key: 'historia',number: '03', href: '/quienes-somos', photo: '/388091.webp' },
   ] as const;
 
   return (
