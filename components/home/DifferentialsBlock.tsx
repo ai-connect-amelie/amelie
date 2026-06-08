@@ -1,10 +1,10 @@
 'use client';
 
 import { useRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
 import { motion, useInView } from 'framer-motion';
-import { botanicalBg } from '@/lib/wallpaper';
 
 export default function DifferentialsBlock() {
   const t = useTranslations('home.differentials');
@@ -13,24 +13,9 @@ export default function DifferentialsBlock() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   const cards = [
-    {
-      key: 'pan',
-      number: '01',
-      icon: '✦',
-      href: '/quienes-somos',
-    },
-    {
-      key: 'galette',
-      number: '02',
-      icon: '✦',
-      href: '/carta',
-    },
-    {
-      key: 'historia',
-      number: '03',
-      icon: '✦',
-      href: '/quienes-somos',
-    },
+    { key: 'pan',     number: '01', href: '/quienes-somos', photo: '/388063.webp' },
+    { key: 'galette', number: '02', href: '/carta',         photo: null },
+    { key: 'historia',number: '03', href: '/quienes-somos', photo: null },
   ] as const;
 
   return (
@@ -65,11 +50,23 @@ export default function DifferentialsBlock() {
                 {card.number}
               </span>
 
-              {/* Placeholder image area */}
-              <div className="aspect-square bg-sable group-hover:bg-noir/50 mb-8 flex items-center justify-center transition-colors duration-500">
-                <p className="text-taupe/40 text-xs tracking-widest uppercase font-body group-hover:text-creme/20 transition-colors duration-500">
-                  Foto placeholder
-                </p>
+              {/* Image area */}
+              <div className="relative aspect-square bg-sable mb-8 overflow-hidden">
+                {card.photo ? (
+                  <Image
+                    src={card.photo}
+                    alt={t(`${card.key}.title`)}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center bg-sable group-hover:bg-noir/50 transition-colors duration-500">
+                    <p className="text-taupe/40 text-xs tracking-widest uppercase font-body group-hover:text-creme/20 transition-colors duration-500">
+                      Foto próximamente
+                    </p>
+                  </div>
+                )}
               </div>
 
               <h3 className="font-display text-2xl lg:text-3xl text-noir group-hover:text-creme font-light italic mb-4 transition-colors duration-500">
