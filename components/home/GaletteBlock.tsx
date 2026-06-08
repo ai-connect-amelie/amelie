@@ -28,12 +28,7 @@ export default function GaletteBlock() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
           {/* Carrusel */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.97 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 1, ease: 'easeOut' }}
-            className="relative w-full aspect-[3/4] overflow-hidden order-2 lg:order-1"
-          >
+          <div className="relative w-full aspect-[3/4] overflow-hidden order-2 lg:order-1">
             {carouselImages.map((src, i) => (
               <motion.div
                 key={i}
@@ -61,10 +56,17 @@ export default function GaletteBlock() {
                 />
               ))}
             </div>
+            {/* Reveal curtain */}
+            <motion.div
+              className="absolute inset-0 bg-sable origin-left z-20"
+              initial={{ scaleX: 1 }}
+              animate={inView ? { scaleX: 0 } : {}}
+              transition={{ duration: 1, delay: 0.3, ease: [0.76, 0, 0.24, 1] }}
+            />
             {/* Corner decorations */}
-            <div className="absolute top-6 left-6 w-10 h-10 border-t-2 border-l-2 border-dore/60 z-10" />
-            <div className="absolute bottom-6 right-6 w-10 h-10 border-b-2 border-r-2 border-dore/60 z-10" />
-          </motion.div>
+            <div className="absolute top-6 left-6 w-10 h-10 border-t-2 border-l-2 border-dore/60 z-30" />
+            <div className="absolute bottom-6 right-6 w-10 h-10 border-b-2 border-r-2 border-dore/60 z-30" />
+          </div>
 
           {/* Text */}
           <motion.div

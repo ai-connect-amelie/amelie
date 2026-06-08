@@ -43,12 +43,7 @@ export default function KilometroBlock() {
           </motion.div>
 
           {/* Image */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.9, delay: 0.2, ease: 'easeOut' }}
-            className="relative w-full aspect-[4/5] overflow-hidden"
-          >
+          <div className="relative w-full aspect-[4/5] overflow-hidden">
             <Image
               src="/km0.webp"
               alt="Producto de temporada Km 0"
@@ -56,10 +51,17 @@ export default function KilometroBlock() {
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
+            {/* Reveal curtain */}
+            <motion.div
+              className="absolute inset-0 bg-sable origin-left z-10"
+              initial={{ scaleX: 1 }}
+              animate={inView ? { scaleX: 0 } : {}}
+              transition={{ duration: 1, delay: 0.3, ease: [0.76, 0, 0.24, 1] }}
+            />
             {/* Corner decorations */}
-            <div className="absolute top-6 left-6 w-8 h-8 border-t border-l border-dore/60 z-10" />
-            <div className="absolute bottom-6 right-6 w-8 h-8 border-b border-r border-dore/60 z-10" />
-          </motion.div>
+            <div className="absolute top-6 left-6 w-8 h-8 border-t border-l border-dore/60 z-20" />
+            <div className="absolute bottom-6 right-6 w-8 h-8 border-b border-r border-dore/60 z-20" />
+          </div>
 
         </div>
       </div>
