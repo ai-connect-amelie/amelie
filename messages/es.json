@@ -90,6 +90,47 @@
       "ctaMaps": "Cómo llegar"
     }
   },
+  "quienesSomos": {
+    "hero": {
+      "label": "Quiénes somos",
+      "title": "Detrás de Amelie\nhay una francesa.",
+      "subtitle": "Una historia real, una cocina honesta y una forma de vivir la gastronomía que viene de muy lejos."
+    },
+    "historia": {
+      "label": "La historia",
+      "title": "De Francia a Las Palmas",
+      "text": "Amelie llegó a Las Palmas de Gran Canaria con sus recetas, sus tradiciones y el deseo de compartir lo que más ama de Francia. No la Francia de los clichés, sino la de las familias, los mercados y las sobremesas largas. Sus recetas vienen de sus abuelas. Su cocina viene de haberla vivido."
+    },
+    "filosofia": {
+      "label": "Nuestra filosofía",
+      "title": "La felicidad está escondida en los pequeños detalles.",
+      "text": "Amelie nace del deseo de compartir lo que más amamos de Francia. No los clichés, no el lujo aparente. La Francia real. La de las familias, los mercados, las sobremesas largas y los sabores que despiertan recuerdos."
+    },
+    "pilares": {
+      "label": "Lo que nos define",
+      "title": "Tres razones para quedarse.",
+      "pan": {
+        "number": "01",
+        "title": "El pain d'épices",
+        "text": "Elaborado en nuestra cocina con una mezcla especial de harinas y especias que calientan el alma. Un ritual que comienza antes del primer plato."
+      },
+      "galette": {
+        "number": "02",
+        "title": "La galette bretonne",
+        "text": "Harina ecológica de Bretaña, molida en un molino histórico activo desde 1870. La única galette auténtica en Gran Canaria."
+      },
+      "km0": {
+        "number": "03",
+        "title": "Producto Km 0, alma francesa",
+        "text": "Cocinamos lo que da Canarias. Productos locales elaborados con técnica y recetas francesas. Canarias pone la tierra. Francia pone el alma."
+      }
+    },
+    "cta": {
+      "title": "¿Lista para descubrir Amelie?",
+      "reservar": "Reservar mesa",
+      "carta": "Ver la carta"
+    }
+  },
   "footer": {
     "tagline": "Una experiencia francesa en el corazón de Las Palmas.",
     "rights": "Todos los derechos reservados.",
