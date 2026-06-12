@@ -1,9 +1,12 @@
+import type { Metadata } from 'next';
+import CartaClient from '@/components/carta/CartaClient';
+
+export const metadata: Metadata = {
+  title: 'La carta',
+  description:
+    'Carta de Amélie Restaurant: desayunos y brunch, menú del día y cocina francesa con la auténtica galette bretonne en Las Palmas de Gran Canaria.',
+};
+
 export default function CartaPage() {
-  return (
-    <div className="min-h-screen pt-32 pb-24 flex items-center justify-center">
-      <p className="font-display text-4xl text-noir italic font-light opacity-30">
-        La carta — Próximamente
-      </p>
-    </div>
-  );
+  return <CartaClient />;
 }

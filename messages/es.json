@@ -131,6 +131,196 @@
       "carta": "Ver la carta"
     }
   },
+  "carta": {
+    "title": "La carta",
+    "subtitle": "Cocina francesa honesta, producto local y la auténtica galette bretonne.",
+    "question": "¿Qué te apetece hoy?",
+    "igic": "Precios con IGIC incluido",
+    "tabs": {
+      "brunch": { "label": "Desayunos & Brunch", "hours": "Mar–Sáb · 9:30 – 13:00" },
+      "menuDia": { "label": "Menú del Día", "hours": "Mar–Vie · 13:00 – 16:00" },
+      "principal": { "label": "La Carta", "hours": "Almuerzos y cenas" }
+    },
+    "anchors": {
+      "salado": "Salado",
+      "dulce": "Dulce",
+      "bebidas": "Bebidas",
+      "empezar": "Para empezar",
+      "seguir": "Para seguir",
+      "hamburguesas": "Hamburguesas",
+      "galettes": "Galettes",
+      "postres": "Postres"
+    },
+    "brunch": {
+      "note": "De 9:30 a 13:00",
+      "salado": {
+        "title": "Salado",
+        "items": [
+          { "name": "Pain d'Épices Amélie", "desc": "Nuestro pan casero de especias digestivas, elaborado con diferentes harinas, miel y frutos secos, servido con mantequilla y mermelada o Nutella.", "price": "4,50" },
+          { "name": "Brioche Salmón", "desc": "Brioche tostado con queso crema, salmón ahumado y aguacate con salsa de eneldo.", "price": "7,50" },
+          { "name": "Brioche Setas", "desc": "Huevos revueltos trufados con setas salteadas.", "price": "6,90" },
+          { "name": "Wrap de Pollo Crujiente", "desc": "Pollo crujiente con ensalada y aguacate, salsa mostaza francesa de Dijon-miel.", "price": "7,90" },
+          { "name": "Galette Brunch", "desc": "Auténtica galette bretona con harina de sarraceno, rellena de huevo, bacon crujiente y queso emmental.", "price": "8,90" },
+          { "name": "Galette Veggie", "desc": "Galette de sarraceno con huevo (o tofu) a la plancha, tomate asado, setas, hierbas provenzales y aceite de albahaca.", "price": "8,90" },
+          { "name": "French Touch Bacon", "desc": "Nuestro pan de especias mojado en huevo y leche, pasado por la plancha y coronado con huevos revueltos, bacon, queso y salsas.", "price": "7,90" },
+          { "name": "French Touch Pastrami", "desc": "Nuestro pan de especias mojado en huevo y leche, pasado por la plancha y coronado con huevos revueltos, pastrami de ternera, queso parmesano madurado 24 meses y mostaza francesa-miel.", "price": "8,50" }
+        ]
+      },
+      "dulce": {
+        "title": "Dulce",
+        "items": [
+          { "name": "Yogur", "desc": "Yogur griego natural con coulis de maracuyá, fruta fresca y granola.", "price": "6,50" },
+          { "name": "Yogur Choco-Caramel", "desc": "Yogur griego natural con salsa de chocolate, crema de cacahuete y granola.", "price": "6,80" },
+          { "name": "Açaí Bowl", "desc": "Bol fresco de açaí brasileño triturado con plátano y frutos rojos, servido con frutas de temporada, granola y crema de cacahuete.", "price": "7,90" },
+          { "name": "French Toast \"Rubi\"", "desc": "Brioche dorado con mantequilla francesa, coulis y compota de frutos rojos, helado de vainilla y avellanas tostadas.", "price": "8,50" },
+          { "name": "Crêpe Nutella", "desc": "Un clásico irresistible con Nutella y azúcar glas.", "price": "4,00" },
+          { "name": "Crêpe Normandía", "desc": "Con manzana asada, salted caramel casero y helado de vainilla.", "price": "6,50" },
+          { "name": "Pastel de Chocolate", "desc": "Pastel de chocolate negro cremoso con coulis de maracuyá.", "price": "4,90" }
+        ]
+      }
+    },
+    "bebidas": {
+      "title": "Bebidas",
+      "note": "A cualquier hora del día",
+      "cafes": {
+        "title": "Cafés",
+        "note": "Café 100% arábica ecológico, molido al momento.",
+        "items": [
+          { "name": "Espresso", "price": "1,50" },
+          { "name": "Doble espresso", "price": "2,50" },
+          { "name": "Cortado", "price": "1,70" },
+          { "name": "Café con leche", "price": "2,20" },
+          { "name": "Leche y leche", "price": "2,20" },
+          { "name": "Capuccino", "price": "2,30" },
+          { "name": "Americano", "price": "1,90" }
+        ]
+      },
+      "tes": {
+        "title": "Tés e infusiones",
+        "items": [
+          { "name": "Tés e infusiones", "desc": "Selección de té verde, té negro, té blanco y manzanilla, servidos en tetera individual.", "price": "2,80" }
+        ]
+      },
+      "lattes": {
+        "title": "Lattes",
+        "note": "Con leche entera o vegetal, calientes o fríos.",
+        "items": [
+          { "name": "Matcha Latte", "desc": "Té verde japonés batido con leche cremosa.", "price": "3,50 / iced 4,90" },
+          { "name": "Golden Latte", "desc": "Mezcla de cúrcuma, jengibre y coco, suave y especiada.", "price": "3,50 / iced 4,90" },
+          { "name": "Chai Latte", "desc": "Infusión de especias dulces con leche vaporizada.", "price": "3,50 / iced 4,90" },
+          { "name": "Iced Latte", "desc": "Espresso 100% arábica bio, con leche fría y hielo.", "price": "4,90" },
+          { "name": "Salted Caramel Latte", "desc": "Espresso 100% arábica bio, con caramelo salado, caliente o iced.", "price": "4,90" }
+        ]
+      },
+      "limonadas": {
+        "title": "Limonadas refrescantes",
+        "items": [
+          { "name": "Clásica", "desc": "Limón fresco.", "price": "3,90" },
+          { "name": "Frutos Rojos", "desc": "Con coulis casero de bayas.", "price": "3,90" },
+          { "name": "Maracuyá", "desc": "Tropical y ligera.", "price": "3,90" },
+          { "name": "Jengibre & Limón", "desc": "Digestiva.", "price": "3,90" }
+        ]
+      },
+      "smoothies": {
+        "title": "Smoothies & Milkshakes",
+        "items": [
+          { "name": "Choco Protein", "desc": "Cacao, avena y crema de cacahuete.", "price": "5,50" },
+          { "name": "La Vie en Glow", "desc": "Frutos rojos, yogur natural y semillas de chía.", "price": "5,00" },
+          { "name": "Milkshake Cremoso", "desc": "Con leche, helado de vainilla y coulis caseros. Sabores: vainilla, frutos rojos o caramelo salado.", "price": "5,50" }
+        ]
+      }
+    },
+    "menuDia": {
+      "title": "Menú semanal",
+      "hours": "De martes a viernes · 13:00 – 16:00",
+      "price": "17,90€",
+      "intro": "Cambiamos nuestro menú cada semana para ofrecerte lo mejor del mercado. Pregunta a nuestro equipo por las opciones de hoy o síguenos en redes para ver la actualización semanal.",
+      "weekLabel": "El menú de esta semana",
+      "primeros": {
+        "title": "Para comenzar · Primeros",
+        "items": [
+          { "name": "Crema de Verduras de Temporada", "allergens": "Alérgenos: apio (posible), lácteos (según acabado). Puede contener trazas de gluten." },
+          { "name": "Ensalada de Hojas Verdes, Manzana & Nueces", "desc": "Con semillas y vinagreta de frambuesa artesanal.", "allergens": "Alérgenos: frutos de cáscara (nueces). Puede contener trazas de gluten y mostaza." },
+          { "name": "Espárragos Blancos, Huevo Poché & Mayonesa de Limón", "allergens": "Alérgenos: huevo, mostaza (mayonesa). Puede contener trazas de lácteos." }
+        ]
+      },
+      "segundos": {
+        "title": "Plato principal · Segundos",
+        "items": [
+          { "name": "Galette Bretonne Forestière", "desc": "Con huevo a la plancha, champiñones portobello salteados, queso fundido y salsa cremosa de hierbas.", "allergens": "Alérgenos: gluten (el trigo sarraceno puede contener trazas), huevo, lácteos (queso, nata)." },
+          { "name": "Hojaldre de Salmón Dorado", "allergens": "Alérgenos: gluten (hojaldre), pescado (salmón), lácteos (mantequilla). Puede contener trazas de huevo." },
+          { "name": "Pechuga de Pollo al Grill, Salsa de Pimienta Verde", "desc": "Con papas fritas caseras.", "allergens": "Alérgenos: lácteos (nata en salsa), mostaza (posible). Sin gluten. Puede contener trazas de apio." }
+        ]
+      },
+      "postres": {
+        "title": "Para terminar",
+        "items": [
+          { "name": "Flan de Caramelo de Mango", "allergens": "Alérgenos: huevo, lácteos (leche, nata). Sin gluten." },
+          { "name": "Yogur Natural con Miel de Flores", "desc": "Con granola o fruta fresca.", "allergens": "Alérgenos: lácteos. Con granola: gluten (avena), frutos de cáscara (posibles). Sin gluten con fruta fresca." },
+          { "name": "Café Bio 100% Arábica", "allergens": "Sin alérgenos de declaración obligatoria. Con leche: lácteos." }
+        ]
+      },
+      "incluye": {
+        "title": "El menú incluye siempre",
+        "text": "Pan de la casa especial y agua.",
+        "allergens": "Alérgenos del pan: gluten y posibles trazas de frutos de cáscara."
+      },
+      "allergyNote": "Si tienes alguna alergia, intolerancia o restricción alimentaria, comunícaselo a tu camarero antes de pedir. Cocinamos con ingredientes frescos y nuestra cocina no está libre de alérgenos cruzados."
+    },
+    "principal": {
+      "empezar": {
+        "title": "Para empezar",
+        "items": [
+          { "name": "Pain d'Épices Amélie", "desc": "Pan casero de especias digestivas y miel, servido con tumaca.", "price": "4,50" },
+          { "name": "Guiso de Garbanzos, Batata y Espinaca", "desc": "Guiso casero de garbanzos al pimentón de la Vera con batata asada y espinaca fresca.", "price": "7,80" },
+          { "name": "Croquetas de Boletus y Trufa (8)", "desc": "Croquetas de bechamel con setas boletus y trufa.", "price": "10,90" },
+          { "name": "Crema de Verduras Frescas", "desc": "Con hortalizas de temporada, suave y reconfortante.", "price": "5,90" },
+          { "name": "Camembert Crujiente", "desc": "Queso francés crujiente y fundente, con mermelada.", "price": "7,90" },
+          { "name": "Revuelto de Morcilla, Manzana y Piñones", "desc": "Morcilla dulce de Teror con manzana pochada y piñones tostados.", "price": "10,90" },
+          { "name": "Carpaccio de Tomate y Jamón Ibérico", "desc": "Tomates frescos laminados con jamón ibérico, parmesano, aceite de albahaca y reducción balsámica.", "price": "12,80" },
+          { "name": "Nature Provençale", "desc": "Batata al horno, queso de cabra o tofu gratinado, berenjena y calabacín asados, tomate asado, tapenade de aceitunas negras, aceite de albahaca, crema balsámica.", "price": "12,90" },
+          { "name": "Ensalada Pollo Crujiente", "desc": "Lechugas frescas con pollo empanado crujiente, tomate cherry, cebolla, queso parmesano madurado y vinagreta francesa mostaza-miel.", "price": "12,90" },
+          { "name": "Ensalada Chèvre Chaud", "desc": "Medallón de cabra gratinado con miel sobre lechugas frescas, tomate cherry, nueces caramelizadas y vinagreta de frutos rojos.", "price": "11,90" }
+        ]
+      },
+      "seguir": {
+        "title": "Para seguir",
+        "items": [
+          { "name": "Tataki de Magret de Pato", "desc": "Magret marcado y marinado en soja, jengibre, miel y sésamo, acompañado de salsa de frutos rojos.", "price": "16,90" },
+          { "name": "Salmón a la Plancha", "desc": "Lomo de salmón con salsa de soja, salsa de eneldo y sésamo, acompañado de verduras salteadas.", "price": "16,90" }
+        ]
+      },
+      "hamburguesas": {
+        "title": "Hamburguesas Gourmet",
+        "note": "Acompañadas de papas fritas o batata asada.",
+        "items": [
+          { "name": "Hamburguesa Black Angus 200", "desc": "Carne 200 g, queso francés raclette y queso parmesano, bacón, cebolla caramelizada, pepinillo y salsas.", "price": "16,90" },
+          { "name": "Hamburguesa de Pechuga de Pollo Crujiente", "desc": "Pollo crujiente, queso de cabra, cebolla caramelizada, lechuga, tomate y salsas.", "price": "14,50" },
+          { "name": "Hamburguesa Beyond", "desc": "Opción vegana con sabor a carne ahumada a la barbacoa, con aguacate, tomate, pepinillo, cebolla morada, ensalada y salsas.", "price": "14,90" }
+        ]
+      },
+      "galettes": {
+        "title": "Galettes Bretonnes",
+        "items": [
+          { "name": "Galette Chamonix", "desc": "Galette de sarraceno con quesos raclette, emmental y parmesano, bacon, huevo y crème fraîche al pimentón de Espelette.", "price": "14,80" },
+          { "name": "Galette Atlantique", "desc": "Con salmón ahumado, queso crema, espárragos blancos, guisantes y crème fraîche al eneldo.", "price": "14,80" },
+          { "name": "Galette Magret", "desc": "Con pato ahumado, setas salteadas, huevo revuelto, parmesano y crème fraîche al pimentón d'Espelette.", "price": "15,90" },
+          { "name": "Galette Jardin de Provence", "desc": "Huevo o tofu salteado, calabacín asado, batata horneada, berenjena asada, tomate seco, hierbas provenzales, reducción balsámica y albahaca, pimentón d'Espelette.", "price": "13,80" }
+        ]
+      },
+      "postres": {
+        "title": "Postres",
+        "items": [
+          { "name": "Pastel de Chocolate y Maracuyá", "desc": "Pastel cremoso de chocolate negro con coulis de maracuyá.", "price": "5,50" },
+          { "name": "Crêpe Nutella", "desc": "Añade coulis casero de frutos rojos, maracuyá o caramelo salado (+1,00) o helado de vainilla (+1,00).", "price": "4,00" },
+          { "name": "Crêpe Flambé", "desc": "Con zumo de limón, azúcar y flameado final.", "price": "5,00" },
+          { "name": "Crêpe Normandía", "desc": "Con manzana asada, salted caramel casero y helado de vainilla.", "price": "6,50" },
+          { "name": "Yogur con Coulis de Frutos Rojos y Fruta", "price": "" },
+          { "name": "Helado de Vainilla con Coulis", "desc": "Una bola 2,50 · dos bolas 4,00.", "price": "" }
+        ]
+      }
+    }
+  },
   "footer": {
     "tagline": "Una experiencia francesa en el corazón de Las Palmas.",
     "rights": "Todos los derechos reservados.",
