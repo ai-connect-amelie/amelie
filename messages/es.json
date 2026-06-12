@@ -139,17 +139,27 @@
     "tabs": {
       "brunch": { "label": "Desayunos & Brunch", "hours": "Mar–Sáb · 9:30 – 13:00" },
       "menuDia": { "label": "Menú del Día", "hours": "Mar–Vie · 13:00 – 16:00" },
-      "principal": { "label": "La Carta", "hours": "Almuerzos y cenas" }
+      "principal": { "label": "La Carta", "hours": "Almuerzos y cenas" },
+      "bebidas": { "label": "Bebidas & Vinos", "hours": "A cualquier hora" }
     },
     "anchors": {
       "salado": "Salado",
       "dulce": "Dulce",
-      "bebidas": "Bebidas",
       "empezar": "Para empezar",
       "seguir": "Para seguir",
       "hamburguesas": "Hamburguesas",
       "galettes": "Galettes",
-      "postres": "Postres"
+      "postres": "Postres",
+      "cafes": "Cafés",
+      "tes": "Tés",
+      "lattes": "Lattes",
+      "limonadas": "Limonadas",
+      "smoothies": "Smoothies",
+      "vinos": "Vinos"
+    },
+    "drinkLink": {
+      "question": "¿Algo de beber?",
+      "cta": "Ver bebidas y vinos"
     },
     "brunch": {
       "note": "De 9:30 a 13:00",
@@ -227,6 +237,17 @@
           { "name": "Choco Protein", "desc": "Cacao, avena y crema de cacahuete.", "price": "5,50" },
           { "name": "La Vie en Glow", "desc": "Frutos rojos, yogur natural y semillas de chía.", "price": "5,00" },
           { "name": "Milkshake Cremoso", "desc": "Con leche, helado de vainilla y coulis caseros. Sabores: vainilla, frutos rojos o caramelo salado.", "price": "5,50" }
+        ]
+      },
+      "vinos": {
+        "title": "Vinos",
+        "note": "Copa · Botella",
+        "placeholder": "Nuestra selección de vinos está en preparación. Pregunta a nuestro equipo por las referencias disponibles.",
+        "groups": [
+          { "title": "Tintos", "items": [] },
+          { "title": "Blancos", "items": [] },
+          { "title": "Rosados", "items": [] },
+          { "title": "Espumosos", "items": [] }
         ]
       }
     },

@@ -5,18 +5,21 @@ import { useTranslations } from 'next-intl';
 
 type Item = { name: string; desc?: string; price?: string };
 type Dish = { name: string; desc?: string; allergens: string };
-type TabId = 'brunch' | 'menu-dia' | 'principal';
+type WineGroup = { title: string; items: Item[] };
+type TabId = 'brunch' | 'menu-dia' | 'principal' | 'bebidas';
 
 const HASH_TO_TAB: Record<string, TabId> = {
   '#brunch': 'brunch',
   '#menu-del-dia': 'menu-dia',
   '#carta': 'principal',
+  '#bebidas': 'bebidas',
 };
 
 const TAB_TO_HASH: Record<TabId, string> = {
   brunch: '#brunch',
   'menu-dia': '#menu-del-dia',
   principal: '#carta',
+  bebidas: '#bebidas',
 };
 
 // Pestaña inicial según día y hora del restaurante (Canarias):
@@ -131,19 +134,19 @@ function AnchorNav({ anchors }: { anchors: { id: string; label: string }[] }) {
   );
 }
 
-/* ── Bebidas (compartida entre brunch y carta) ── */
+/* ── Bebidas & Vinos ── */
 
-function BebidasSections({ idPrefix }: { idPrefix: string }) {
+function BebidasPanel() {
   const t = useTranslations('carta.bebidas');
   const groups = ['cafes', 'tes', 'lattes', 'limonadas', 'smoothies'] as const;
+  const wineGroups = (t.raw('vinos.groups') as WineGroup[]).filter((g) => g.items.length > 0);
   return (
-    <section id={`${idPrefix}-bebidas`} className="scroll-mt-40">
-      <SectionHeading title={t('title')} note={t('note')} />
+    <div className="space-y-24">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-14">
         {groups.map((g) => {
           const group = t.raw(g) as { title: string; note?: string; items: Item[] };
           return (
-            <div key={g}>
+            <section key={g} id={`bebidas-${g}`} className="scroll-mt-40">
               <h3 className="font-display italic text-2xl text-noir font-light">{group.title}</h3>
               <div className="w-8 h-px bg-dore/50 mt-2.5 mb-2.5" aria-hidden />
               {group.note ? (
@@ -156,11 +159,57 @@ function BebidasSections({ idPrefix }: { idPrefix: string }) {
                   <MenuRow key={item.name} item={item} />
                 ))}
               </div>
-            </div>
+            </section>
           );
         })}
       </div>
-    </section>
+
+      {/* Vinos */}
+      <section id="bebidas-vinos" className="scroll-mt-40">
+        <SectionHeading title={t('vinos.title')} note={t('vinos.note')} />
+        {wineGroups.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-14">
+            {wineGroups.map((group) => (
+              <div key={group.title}>
+                <h3 className="font-display italic text-2xl text-noir font-light">{group.title}</h3>
+                <div className="w-8 h-px bg-dore/50 mt-2.5 mb-5" aria-hidden />
+                <div className="space-y-5">
+                  {group.items.map((item) => (
+                    <MenuRow key={item.name} item={item} />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-10">
+            <p className="font-display italic text-xl text-noir/60 font-light max-w-md mx-auto leading-relaxed">
+              {t('vinos.placeholder')}
+            </p>
+          </div>
+        )}
+      </section>
+    </div>
+  );
+}
+
+/* ── Enlace cruzado hacia Bebidas & Vinos ── */
+
+function DrinkLink({ onGo }: { onGo: () => void }) {
+  const t = useTranslations('carta.drinkLink');
+  return (
+    <div className="text-center pt-2">
+      <Ornament />
+      <p className="font-display italic text-2xl text-noir/75 font-light mt-7 mb-6">
+        {t('question')}
+      </p>
+      <button
+        onClick={onGo}
+        className="inline-flex items-center px-9 py-3.5 border border-noir text-noir text-xs tracking-widest uppercase font-body hover:bg-noir hover:text-creme transition-all duration-300"
+      >
+        {t('cta')}
+      </button>
+    </div>
   );
 }
 
@@ -266,16 +315,21 @@ export default function CartaClient() {
     history.replaceState(null, '', TAB_TO_HASH[next]);
   };
 
-  const tabs: { id: TabId; key: 'brunch' | 'menuDia' | 'principal' }[] = [
+  const goBebidas = () => {
+    selectTab('bebidas');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const tabs: { id: TabId; key: 'brunch' | 'menuDia' | 'principal' | 'bebidas' }[] = [
     { id: 'brunch', key: 'brunch' },
     { id: 'menu-dia', key: 'menuDia' },
     { id: 'principal', key: 'principal' },
+    { id: 'bebidas', key: 'bebidas' },
   ];
 
   const brunchAnchors = [
     { id: 'brunch-salado', label: t('anchors.salado') },
     { id: 'brunch-dulce', label: t('anchors.dulce') },
-    { id: 'brunch-bebidas', label: t('anchors.bebidas') },
   ];
 
   const principalAnchors = [
@@ -284,7 +338,15 @@ export default function CartaClient() {
     { id: 'carta-hamburguesas', label: t('anchors.hamburguesas') },
     { id: 'carta-galettes', label: t('anchors.galettes') },
     { id: 'carta-postres', label: t('anchors.postres') },
-    { id: 'carta-bebidas', label: t('anchors.bebidas') },
+  ];
+
+  const bebidasAnchors = [
+    { id: 'bebidas-cafes', label: t('anchors.cafes') },
+    { id: 'bebidas-tes', label: t('anchors.tes') },
+    { id: 'bebidas-lattes', label: t('anchors.lattes') },
+    { id: 'bebidas-limonadas', label: t('anchors.limonadas') },
+    { id: 'bebidas-smoothies', label: t('anchors.smoothies') },
+    { id: 'bebidas-vinos', label: t('anchors.vinos') },
   ];
 
   const principalSections = ['empezar', 'seguir', 'hamburguesas', 'galettes', 'postres'] as const;
@@ -312,7 +374,7 @@ export default function CartaClient() {
         <p className="font-display italic text-2xl text-noir/75 font-light text-center mb-8">
           {t('question')}
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-20">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 mb-20">
           {tabs.map(({ id, key }) => {
             const active = tab === id;
             return (
@@ -325,19 +387,19 @@ export default function CartaClient() {
                 }`}
               >
                 <span
-                  className={`flex flex-col items-center justify-center gap-2 border px-4 py-6 h-full transition-colors duration-300 ${
+                  className={`flex flex-col items-center justify-center gap-2 border px-3 py-5 lg:py-6 h-full transition-colors duration-300 ${
                     active ? 'border-dore/50' : 'border-transparent group-hover:border-dore/30'
                   }`}
                 >
                   <span
-                    className={`text-[10px] tracking-[0.3em] uppercase font-body ${
+                    className={`text-[10px] tracking-[0.3em] uppercase font-body text-center ${
                       active ? 'text-dore' : 'text-taupe'
                     }`}
                   >
                     {t(`tabs.${key}.hours`)}
                   </span>
                   <span
-                    className={`font-display italic text-2xl font-light leading-tight ${
+                    className={`font-display italic text-xl lg:text-2xl font-light leading-tight text-center ${
                       active ? 'text-creme' : 'text-noir'
                     }`}
                   >
@@ -361,13 +423,19 @@ export default function CartaClient() {
               <SectionHeading title={t('brunch.dulce.title')} note={t('brunch.note')} />
               <ItemList items={t.raw('brunch.dulce.items') as Item[]} twoCols />
             </section>
-            <BebidasSections idPrefix="brunch" />
+            <DrinkLink onGo={goBebidas} />
           </div>
         </div>
 
         {/* Panel: Menú del Día */}
         <div className={panelClass('menu-dia')}>
           <MenuDiaPanel />
+        </div>
+
+        {/* Panel: Bebidas & Vinos */}
+        <div className={panelClass('bebidas')}>
+          <AnchorNav anchors={bebidasAnchors} />
+          <BebidasPanel />
         </div>
 
         {/* Panel: La Carta */}
@@ -387,7 +455,7 @@ export default function CartaClient() {
                 </section>
               );
             })}
-            <BebidasSections idPrefix="carta" />
+            <DrinkLink onGo={goBebidas} />
           </div>
         </div>
 
