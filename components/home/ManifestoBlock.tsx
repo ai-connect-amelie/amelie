@@ -17,7 +17,7 @@ export default function ManifestoBlock() {
   ];
 
   return (
-    <section ref={ref} className="py-20 lg:py-28">
+    <section ref={ref} className="py-10 lg:py-14">
       <div className="max-w-4xl mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
