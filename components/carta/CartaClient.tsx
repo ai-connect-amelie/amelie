@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 type Item = { name: string; desc?: string; price?: string };
@@ -43,18 +43,51 @@ function defaultTabByTime(): TabId {
   return 'principal';
 }
 
+/* ── Ornamentos ── */
+
+function Diamond({ className = '' }: { className?: string }) {
+  return <span aria-hidden className={`inline-block w-1.5 h-1.5 rotate-45 border border-dore ${className}`} />;
+}
+
+function Ornament() {
+  return (
+    <div className="flex items-center justify-center gap-3" aria-hidden>
+      <span className="h-px w-14 bg-gradient-to-l from-dore/60 to-transparent" />
+      <Diamond />
+      <span className="h-px w-14 bg-gradient-to-r from-dore/60 to-transparent" />
+    </div>
+  );
+}
+
+function SectionHeading({ title, note }: { title: string; note?: string }) {
+  return (
+    <div className="text-center mb-12">
+      <div className="flex items-center justify-center gap-5 mb-3">
+        <span className="h-px flex-1 max-w-20 bg-dore/40" aria-hidden />
+        <h2 className="font-display italic text-3xl md:text-4xl text-noir font-light">{title}</h2>
+        <span className="h-px flex-1 max-w-20 bg-dore/40" aria-hidden />
+      </div>
+      {note ? (
+        <p className="text-[11px] tracking-[0.3em] uppercase font-body text-taupe">{note}</p>
+      ) : null}
+    </div>
+  );
+}
+
+/* ── Platos ── */
+
 function MenuRow({ item }: { item: Item }) {
   return (
     <div>
-      <div className="flex items-baseline gap-3">
-        <span className="font-body text-[15px] text-noir">{item.name}</span>
-        <span className="flex-1 border-b border-dotted border-taupe/40 -translate-y-1" />
+      <div className="flex items-baseline gap-4">
+        <h3 className="font-display text-xl text-noir font-light leading-snug">{item.name}</h3>
+        <span className="flex-1 self-center h-px bg-noir/10" aria-hidden />
         {item.price ? (
-          <span className="font-body text-[15px] text-noir whitespace-nowrap">{item.price}</span>
+          <span className="font-display text-lg text-dore-dark whitespace-nowrap">{item.price}</span>
         ) : null}
       </div>
       {item.desc ? (
-        <p className="mt-1 pr-8 text-sm font-body font-light text-noir/60 leading-relaxed max-w-xl">
+        <p className="mt-1.5 pr-8 text-sm font-body font-light text-noir/55 leading-relaxed max-w-md">
           {item.desc}
         </p>
       ) : null}
@@ -62,19 +95,15 @@ function MenuRow({ item }: { item: Item }) {
   );
 }
 
-function SectionHeading({ title, note }: { title: string; note?: string }) {
+function ItemList({ items, twoCols = false }: { items: Item[]; twoCols?: boolean }) {
   return (
-    <div className="mb-8">
-      <h2 className="font-display italic text-3xl md:text-4xl text-noir font-light">{title}</h2>
-      {note ? <p className="mt-2 text-sm font-body font-light text-taupe">{note}</p> : null}
-      <div className="w-10 h-px bg-dore/50 mt-4" />
-    </div>
-  );
-}
-
-function ItemList({ items }: { items: Item[] }) {
-  return (
-    <div className="space-y-6">
+    <div
+      className={
+        twoCols
+          ? 'grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-9'
+          : 'space-y-9 max-w-2xl mx-auto'
+      }
+    >
       {items.map((item) => (
         <MenuRow key={item.name} item={item} />
       ))}
@@ -82,42 +111,51 @@ function ItemList({ items }: { items: Item[] }) {
   );
 }
 
+/* ── Navegación de anclas ── */
+
 function AnchorNav({ anchors }: { anchors: { id: string; label: string }[] }) {
   return (
-    <nav className="flex flex-wrap gap-x-6 gap-y-2 mb-14 border-y border-sable py-4">
-      {anchors.map((a) => (
-        <button
-          key={a.id}
-          onClick={() => document.getElementById(a.id)?.scrollIntoView({ behavior: 'smooth' })}
-          className="text-xs tracking-widest uppercase font-body text-taupe hover:text-noir transition-colors duration-200"
-        >
-          {a.label}
-        </button>
+    <nav className="sticky top-20 z-30 bg-creme/95 backdrop-blur-sm border-y border-dore/25 py-3.5 mb-16 flex flex-wrap items-center justify-center gap-y-1">
+      {anchors.map((a, i) => (
+        <Fragment key={a.id}>
+          {i > 0 ? <Diamond className="mx-3 scale-[0.6] border-dore/60" /> : null}
+          <button
+            onClick={() => document.getElementById(a.id)?.scrollIntoView({ behavior: 'smooth' })}
+            className="text-[11px] tracking-[0.2em] uppercase font-body text-noir/55 hover:text-dore-dark transition-colors duration-200"
+          >
+            {a.label}
+          </button>
+        </Fragment>
       ))}
     </nav>
   );
 }
 
+/* ── Bebidas (compartida entre brunch y carta) ── */
+
 function BebidasSections({ idPrefix }: { idPrefix: string }) {
   const t = useTranslations('carta.bebidas');
   const groups = ['cafes', 'tes', 'lattes', 'limonadas', 'smoothies'] as const;
   return (
-    <section id={`${idPrefix}-bebidas`} className="scroll-mt-28">
+    <section id={`${idPrefix}-bebidas`} className="scroll-mt-40">
       <SectionHeading title={t('title')} note={t('note')} />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-14">
         {groups.map((g) => {
           const group = t.raw(g) as { title: string; note?: string; items: Item[] };
           return (
             <div key={g}>
-              <h3 className="font-body text-xs tracking-[0.25em] uppercase text-dore mb-1">
-                {group.title}
-              </h3>
+              <h3 className="font-display italic text-2xl text-noir font-light">{group.title}</h3>
+              <div className="w-8 h-px bg-dore/50 mt-2.5 mb-2.5" aria-hidden />
               {group.note ? (
-                <p className="text-sm font-body font-light text-noir/55 mb-4">{group.note}</p>
+                <p className="text-sm font-body font-light text-noir/55 mb-5">{group.note}</p>
               ) : (
-                <div className="mb-4" />
+                <div className="mb-5" />
               )}
-              <ItemList items={group.items} />
+              <div className="space-y-5">
+                {group.items.map((item) => (
+                  <MenuRow key={item.name} item={item} />
+                ))}
+              </div>
             </div>
           );
         })}
@@ -126,66 +164,93 @@ function BebidasSections({ idPrefix }: { idPrefix: string }) {
   );
 }
 
+/* ── Menú del Día ── */
+
+function CourseHeading({ title }: { title: string }) {
+  return (
+    <div className="flex items-center justify-center gap-4 mb-8">
+      <span className="h-px flex-1 max-w-12 bg-dore/40" aria-hidden />
+      <h3 className="text-xs tracking-[0.3em] uppercase font-body text-dore-dark text-center">
+        {title}
+      </h3>
+      <span className="h-px flex-1 max-w-12 bg-dore/40" aria-hidden />
+    </div>
+  );
+}
+
 function MenuDiaPanel() {
   const t = useTranslations('carta.menuDia');
   const courses = ['primeros', 'segundos', 'postres'] as const;
   return (
-    <div className="max-w-3xl mx-auto">
-      <div className="text-center mb-12">
-        <h2 className="font-display italic text-4xl md:text-5xl text-noir font-light mb-3">
-          {t('title')}
-        </h2>
-        <p className="text-sm font-body text-taupe tracking-wide mb-6">{t('hours')}</p>
-        <p className="font-display text-3xl text-dore-dark">{t('price')}</p>
-      </div>
+    <div className="max-w-3xl mx-auto border border-dore/50 p-1.5">
+      <div className="border border-dore/25 px-6 sm:px-12 lg:px-16 py-14 lg:py-18">
+        <div className="text-center mb-10">
+          <p className="text-[11px] tracking-[0.35em] uppercase font-body text-dore mb-4">
+            {t('hours')}
+          </p>
+          <h2 className="font-display italic text-4xl md:text-5xl text-noir font-light mb-7">
+            {t('title')}
+          </h2>
+          <Ornament />
+          <p className="mt-8">
+            <span className="inline-block border border-dore/60 px-9 py-2.5 font-display text-3xl text-noir font-light">
+              {t('price')}
+            </span>
+          </p>
+        </div>
 
-      <p className="text-base font-body font-light text-noir/70 leading-relaxed text-center mb-14">
-        {t('intro')}
-      </p>
-
-      <p className="text-xs tracking-[0.3em] uppercase font-body text-dore text-center mb-10">
-        {t('weekLabel')}
-      </p>
-
-      <div className="space-y-12">
-        {courses.map((course) => (
-          <div key={course}>
-            <h3 className="font-body text-xs tracking-[0.25em] uppercase text-dore mb-6">
-              {t(`${course}.title`)}
-            </h3>
-            <div className="space-y-6">
-              {(t.raw(`${course}.items`) as Dish[]).map((dish) => (
-                <div key={dish.name}>
-                  <p className="font-body text-[15px] text-noir">{dish.name}</p>
-                  {dish.desc ? (
-                    <p className="mt-1 text-sm font-body font-light text-noir/60 leading-relaxed">
-                      {dish.desc}
-                    </p>
-                  ) : null}
-                  <p className="mt-1 text-xs font-body font-light text-taupe/80 leading-relaxed">
-                    {dish.allergens}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-14 border border-dore/40 px-6 py-5 text-center">
-        <p className="text-xs tracking-[0.25em] uppercase font-body text-dore mb-2">
-          {t('incluye.title')}
+        <p className="text-[15px] font-body font-light text-noir/65 leading-relaxed text-center mb-14 max-w-xl mx-auto">
+          {t('intro')}
         </p>
-        <p className="text-sm font-body text-noir/75">{t('incluye.text')}</p>
-        <p className="mt-1 text-xs font-body font-light text-taupe/80">{t('incluye.allergens')}</p>
-      </div>
 
-      <p className="mt-8 text-xs font-body font-light text-taupe/80 leading-relaxed text-center">
-        {t('allergyNote')}
-      </p>
+        <p className="font-display italic text-2xl text-noir/80 font-light text-center mb-12">
+          {t('weekLabel')}
+        </p>
+
+        <div className="space-y-14">
+          {courses.map((course) => (
+            <div key={course}>
+              <CourseHeading title={t(`${course}.title`)} />
+              <div className="space-y-8 text-center">
+                {(t.raw(`${course}.items`) as Dish[]).map((dish) => (
+                  <div key={dish.name}>
+                    <p className="font-display text-xl text-noir font-light leading-snug">
+                      {dish.name}
+                    </p>
+                    {dish.desc ? (
+                      <p className="mt-1.5 text-sm font-body font-light text-noir/60 leading-relaxed max-w-md mx-auto">
+                        {dish.desc}
+                      </p>
+                    ) : null}
+                    <p className="mt-1.5 text-[11px] font-body font-light text-taupe/85 leading-relaxed max-w-md mx-auto">
+                      {dish.allergens}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-16 border border-dore/40 bg-sable/40 px-6 py-6 text-center">
+          <p className="text-[11px] tracking-[0.3em] uppercase font-body text-dore-dark mb-2.5">
+            {t('incluye.title')}
+          </p>
+          <p className="font-display text-lg text-noir font-light">{t('incluye.text')}</p>
+          <p className="mt-1.5 text-[11px] font-body font-light text-taupe/85">
+            {t('incluye.allergens')}
+          </p>
+        </div>
+
+        <p className="mt-10 text-xs font-body font-light text-taupe/85 leading-relaxed text-center max-w-lg mx-auto">
+          {t('allergyNote')}
+        </p>
+      </div>
     </div>
   );
 }
+
+/* ── Página ── */
 
 export default function CartaClient() {
   const t = useTranslations('carta');
@@ -224,72 +289,91 @@ export default function CartaClient() {
 
   const principalSections = ['empezar', 'seguir', 'hamburguesas', 'galettes', 'postres'] as const;
 
+  const panelClass = (id: TabId) => (tab === id ? 'carta-panel' : 'hidden');
+
   return (
-    <div className="min-h-screen pt-32 pb-24 bg-creme">
+    <div className="min-h-screen pt-36 pb-28 bg-creme">
       <div className="max-w-5xl mx-auto px-6 lg:px-12">
-        {/* Cabecera */}
-        <div className="text-center mb-12">
-          <h1 className="font-display italic text-5xl md:text-6xl text-noir font-light mb-4">
+        {/* Cabecera editorial */}
+        <header className="text-center mb-16">
+          <p className="text-[11px] tracking-[0.4em] uppercase font-body text-dore mb-5">
+            Amélie · Cuisine & Brunch
+          </p>
+          <h1 className="font-display italic text-5xl md:text-6xl lg:text-7xl text-noir font-light mb-6">
             {t('title')}
           </h1>
-          <p className="text-base font-body font-light text-noir/65 max-w-xl mx-auto">
+          <p className="text-base font-body font-light text-noir/60 max-w-xl mx-auto leading-relaxed mb-8">
             {t('subtitle')}
           </p>
-        </div>
+          <Ornament />
+        </header>
 
         {/* Selector de momento */}
-        <p className="text-xs tracking-[0.3em] uppercase font-body text-dore text-center mb-6">
+        <p className="font-display italic text-2xl text-noir/75 font-light text-center mb-8">
           {t('question')}
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-16">
-          {tabs.map(({ id, key }) => (
-            <button
-              key={id}
-              onClick={() => selectTab(id)}
-              aria-pressed={tab === id}
-              className={`flex flex-col items-center gap-1 px-4 py-5 border transition-colors duration-300 ${
-                tab === id
-                  ? 'bg-noir border-noir text-creme'
-                  : 'border-noir/25 text-noir hover:border-noir'
-              }`}
-            >
-              <span className="font-display italic text-xl font-light">{t(`tabs.${key}.label`)}</span>
-              <span
-                className={`text-[11px] tracking-widest uppercase font-body ${
-                  tab === id ? 'text-creme/60' : 'text-taupe'
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-20">
+          {tabs.map(({ id, key }) => {
+            const active = tab === id;
+            return (
+              <button
+                key={id}
+                onClick={() => selectTab(id)}
+                aria-pressed={active}
+                className={`group p-1.5 border transition-colors duration-300 ${
+                  active ? 'border-noir bg-noir' : 'border-noir/20 hover:border-dore/70'
                 }`}
               >
-                {t(`tabs.${key}.hours`)}
-              </span>
-            </button>
-          ))}
+                <span
+                  className={`flex flex-col items-center justify-center gap-2 border px-4 py-6 h-full transition-colors duration-300 ${
+                    active ? 'border-dore/50' : 'border-transparent group-hover:border-dore/30'
+                  }`}
+                >
+                  <span
+                    className={`text-[10px] tracking-[0.3em] uppercase font-body ${
+                      active ? 'text-dore' : 'text-taupe'
+                    }`}
+                  >
+                    {t(`tabs.${key}.hours`)}
+                  </span>
+                  <span
+                    className={`font-display italic text-2xl font-light leading-tight ${
+                      active ? 'text-creme' : 'text-noir'
+                    }`}
+                  >
+                    {t(`tabs.${key}.label`)}
+                  </span>
+                </span>
+              </button>
+            );
+          })}
         </div>
 
         {/* Panel: Desayunos & Brunch */}
-        <div className={tab === 'brunch' ? '' : 'hidden'}>
+        <div className={panelClass('brunch')}>
           <AnchorNav anchors={brunchAnchors} />
-          <div className="space-y-20">
-            <section id="brunch-salado" className="scroll-mt-28">
+          <div className="space-y-24">
+            <section id="brunch-salado" className="scroll-mt-40">
               <SectionHeading title={t('brunch.salado.title')} note={t('brunch.note')} />
-              <ItemList items={t.raw('brunch.salado.items') as Item[]} />
+              <ItemList items={t.raw('brunch.salado.items') as Item[]} twoCols />
             </section>
-            <section id="brunch-dulce" className="scroll-mt-28">
+            <section id="brunch-dulce" className="scroll-mt-40">
               <SectionHeading title={t('brunch.dulce.title')} note={t('brunch.note')} />
-              <ItemList items={t.raw('brunch.dulce.items') as Item[]} />
+              <ItemList items={t.raw('brunch.dulce.items') as Item[]} twoCols />
             </section>
             <BebidasSections idPrefix="brunch" />
           </div>
         </div>
 
         {/* Panel: Menú del Día */}
-        <div className={tab === 'menu-dia' ? '' : 'hidden'}>
+        <div className={panelClass('menu-dia')}>
           <MenuDiaPanel />
         </div>
 
         {/* Panel: La Carta */}
-        <div className={tab === 'principal' ? '' : 'hidden'}>
+        <div className={panelClass('principal')}>
           <AnchorNav anchors={principalAnchors} />
-          <div className="space-y-20">
+          <div className="space-y-24">
             {principalSections.map((section) => {
               const data = t.raw(`principal.${section}`) as {
                 title: string;
@@ -297,9 +381,9 @@ export default function CartaClient() {
                 items: Item[];
               };
               return (
-                <section key={section} id={`carta-${section}`} className="scroll-mt-28">
+                <section key={section} id={`carta-${section}`} className="scroll-mt-40">
                   <SectionHeading title={data.title} note={data.note} />
-                  <ItemList items={data.items} />
+                  <ItemList items={data.items} twoCols={data.items.length > 3} />
                 </section>
               );
             })}
@@ -307,9 +391,13 @@ export default function CartaClient() {
           </div>
         </div>
 
-        <p className="mt-20 text-center text-xs font-body font-light text-taupe tracking-wide">
-          {t('igic')}
-        </p>
+        {/* Pie */}
+        <div className="mt-24 text-center">
+          <Ornament />
+          <p className="mt-6 text-[11px] tracking-[0.25em] uppercase font-body text-taupe">
+            {t('igic')}
+          </p>
+        </div>
       </div>
     </div>
   );

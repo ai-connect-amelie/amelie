@@ -189,7 +189,7 @@
           { "name": "Espresso", "price": "1,50" },
           { "name": "Doble espresso", "price": "2,50" },
           { "name": "Cortado", "price": "1,70" },
-          { "name": "Café con leche", "price": "2,20" },
+          { "name": "Café con leche", "price": "2,00" },
           { "name": "Leche y leche", "price": "2,20" },
           { "name": "Capuccino", "price": "2,30" },
           { "name": "Americano", "price": "1,90" }
@@ -208,7 +208,7 @@
           { "name": "Matcha Latte", "desc": "Té verde japonés batido con leche cremosa.", "price": "3,50 / iced 4,90" },
           { "name": "Golden Latte", "desc": "Mezcla de cúrcuma, jengibre y coco, suave y especiada.", "price": "3,50 / iced 4,90" },
           { "name": "Chai Latte", "desc": "Infusión de especias dulces con leche vaporizada.", "price": "3,50 / iced 4,90" },
-          { "name": "Iced Latte", "desc": "Espresso 100% arábica bio, con leche fría y hielo.", "price": "4,90" },
+          { "name": "Iced Latte", "desc": "Espresso 100% arábica bio, con leche fría y hielo.", "price": "3,50 / 4,90" },
           { "name": "Salted Caramel Latte", "desc": "Espresso 100% arábica bio, con caramelo salado, caliente o iced.", "price": "4,90" }
         ]
       },
