@@ -19,7 +19,7 @@ export default function DifferentialsBlock() {
   ] as const;
 
   return (
-    <section ref={ref} className="py-24 lg:py-36">
+    <section ref={ref} className="py-12 lg:py-18">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Header */}
         <motion.div
