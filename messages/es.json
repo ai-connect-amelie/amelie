@@ -3,7 +3,7 @@
     "quienesSomos": "Quiénes somos",
     "carta": "La carta",
     "alquilerSala": "Alquiler de sala",
-    "hitCard": "Hit Card",
+    "hitCard": "Regala Amélie",
     "reservar": "Reservar",
     "contacto": "Contacto",
     "eventos": "Eventos",
@@ -399,6 +399,62 @@
       "phone": "+34 928 60 75 70",
       "phoneLabel": "Llamar ahora"
     }
+  },
+  "hitCard": {
+    "hero": {
+      "label": "Bonos experiencia",
+      "title": "Regala Amélie",
+      "subtitle": "Regala una experiencia gastronómica única. Momentos que se recuerdan mucho después de que terminen."
+    },
+    "intro": {
+      "text": "Cada bono incluye una experiencia completa para dos personas en Amélie. Válido durante un año desde la fecha de compra. Disponible en el local."
+    },
+    "experiences": {
+      "label": "Elige tu experiencia",
+      "title": "Tres maneras de regalar Amélie",
+      "pax": "Para 2 personas",
+      "validez": "Válido 1 año",
+      "items": [
+        {
+          "numero": "01",
+          "nombre": "Brunch pour Deux",
+          "descripcion": "Una mañana en Amélie para dos. Cada uno elige su plato de brunch — salado o dulce — y dos bebidas calientes incluidas.",
+          "incluye": "2 platos de brunch · 2 cafés, tés o lattes",
+          "precio": "29"
+        },
+        {
+          "numero": "02",
+          "nombre": "Galette Bretonne",
+          "descripcion": "Descubre la auténtica galette bretona elaborada con harina ecológica de Bretaña. Cada uno elige la galette que prefiera de nuestra carta, acompañada de una bebida de la casa.",
+          "incluye": "2 galettes a elección · 2 bebidas de la casa",
+          "precio": "32"
+        },
+        {
+          "numero": "03",
+          "nombre": "La Table d'Amélie",
+          "descripcion": "Una comida o cena completa para dos, de principio a fin. El modo más completo de vivir Amélie en la mesa.",
+          "incluye": "Entrante compartido · 2 platos principales · Postre compartido · Agua incluida",
+          "precio": "42"
+        }
+      ]
+    },
+    "como": {
+      "label": "¿Cómo funciona?",
+      "steps": [
+        { "numero": "01", "texto": "Elige la experiencia que quieres regalar" },
+        { "numero": "02", "texto": "Pásate por el local o llámanos para adquirir el bono" },
+        { "numero": "03", "texto": "Recibe tu bono y regálalo — válido 1 año desde la compra" }
+      ]
+    },
+    "cta": {
+      "label": "Adquirir un bono",
+      "title": "¿Quieres regalar una experiencia?",
+      "text": "Pásate por Amélie o llámanos y te preparamos el bono al momento.",
+      "phone": "+34 928 60 75 70",
+      "phoneLabel": "Llamar ahora",
+      "visitLabel": "Cómo llegar"
+    },
+    "nota": "Bonos válidos 1 año · Mínimo 2 personas · No acumulable con otras promociones"
   },
   "footer": {
     "tagline": "Una experiencia francesa en el corazón de Las Palmas.",
