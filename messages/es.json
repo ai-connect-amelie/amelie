@@ -94,6 +94,17 @@
       "title": "El evento perfecto comienza aquí",
       "text": "En nuestro Salón Lumière, en pleno centro de Las Palmas, ofrecemos el escenario ideal para reuniones privadas, presentaciones, eventos corporativos, celebraciones familiares y comuniones íntimas. Nuestro equipo cuida cada detalle para que todo fluya a la perfección.",
       "cta": "Descubrir el espacio"
+    },
+    "regala": {
+      "label": "Bonos experiencia",
+      "title": "Regala Amélie",
+      "subtitle": "Regala una experiencia gastronómica única. Momentos que se recuerdan mucho después de que terminen.",
+      "cta": "Ver todas las experiencias",
+      "items": [
+        { "nombre": "Brunch pour Deux", "text": "Una mañana en Amélie para dos, con plato y bebida incluidos." },
+        { "nombre": "Galette Bretonne", "text": "La auténtica galette bretona de Bretaña, a elección de cada uno." },
+        { "nombre": "La Table d'Amélie", "text": "Una comida o cena completa, de principio a fin, para dos." }
+      ]
     }
   },
   "quienesSomos": {
@@ -360,6 +371,24 @@
       "text1": "El Salón Lumière es un espacio privado e independiente, disponible con o sin servicio de restauración. Adaptable en su totalidad a la demanda y necesidades de cada cliente.",
       "text2": "Desde reuniones privadas y presentaciones corporativas, hasta celebraciones familiares, cenas de grupo y comuniones íntimas — nuestro equipo cuida cada detalle para que todo fluya a la perfección."
     },
+    "modalidades": {
+      "label": "Dos maneras de hacerlo tuyo",
+      "title": "Elige tu modalidad",
+      "a": {
+        "numero": "01",
+        "label": "Espacio exclusivo",
+        "title": "Solo el espacio",
+        "text": "Alquilas el Salon Lumière de forma totalmente independiente. Tú decides el catering, la decoración y la organización. Libertad total para crear tu evento a tu imagen.",
+        "tags": ["Espacio privado", "Hasta ~60 pax", "Tú gestionas todo"]
+      },
+      "b": {
+        "numero": "02",
+        "label": "Experiencia completa",
+        "title": "Espacio + Amélie",
+        "text": "El Salon Lumière con el servicio completo de Amélie. Nuestra cocina, nuestro equipo y nuestra atención al detalle al servicio de tu evento. Solo tienes que venir y disfrutar.",
+        "tags": ["Espacio privado", "Cocina Amélie", "Servicio completo"]
+      }
+    },
     "usos": {
       "label": "Para cada ocasión",
       "title": "Un espacio, mil posibilidades",
@@ -398,6 +427,48 @@
       "text": "Cuéntanos tu idea y te ayudamos a hacerla realidad. Llámanos y te contamos todo lo que el Salón Lumière puede ofrecerte.",
       "phone": "+34 928 60 75 70",
       "phoneLabel": "Llamar ahora"
+    }
+  },
+  "eventos": {
+    "hero": {
+      "label": "Grupos & Eventos",
+      "title": "Tu evento,\nnuestra cocina",
+      "subtitle": "Trae tu grupo y déjanos organizarlo todo. Menú a medida, servicio personalizado y la experiencia gastronómica de Amélie."
+    },
+    "intro": {
+      "label": "El servicio",
+      "title": "Amélie lo organiza todo",
+      "text1": "No necesitas alquilar un espacio ni preocuparte por nada. Trae a tu grupo y nuestro equipo se encarga de que todo fluya — desde el menú hasta el último detalle del servicio.",
+      "text2": "De 2 a 60 personas. Menú cerrado o adaptado a tus preferencias. Con antelación o con poco margen. Siempre a tu medida."
+    },
+    "tipos": {
+      "label": "¿Cuál es tu ocasión?",
+      "title": "Para cada momento",
+      "items": [
+        { "numero": "01", "label": "Empresa", "title": "Cenas de empresa", "text": "Cierra el año con tu equipo, celebra un hito o simplemente disfruta de una buena mesa en un entorno que marca la diferencia." },
+        { "numero": "02", "label": "Familia", "title": "Celebraciones familiares", "text": "Cumpleaños, aniversarios, comuniones y reuniones íntimas. Un espacio cálido donde celebrar lo que más importa." },
+        { "numero": "03", "label": "Amigos", "title": "Comidas & Cenas de grupo", "text": "De 10 a 60 personas, con menú cerrado o a carta. Nosotros nos encargamos de que todo fluya a la perfección." },
+        { "numero": "04", "label": "Ocasiones", "title": "Momentos especiales", "text": "San Valentín, despedidas, ocasiones únicas. Cuéntanos tu momento y diseñamos la experiencia perfecta para ti." }
+      ]
+    },
+    "como": {
+      "label": "¿Cómo funciona?",
+      "steps": [
+        { "numero": "01", "texto": "Cuéntanos tu evento, fecha y número de personas" },
+        { "numero": "02", "texto": "Te proponemos un menú adaptado a tus necesidades" },
+        { "numero": "03", "texto": "Solo tienes que venir y disfrutar — nosotros nos encargamos del resto" }
+      ]
+    },
+    "diferencial": {
+      "quote": "No organizamos eventos. Creamos experiencias gastronómicas que se convierten en recuerdos."
+    },
+    "cta": {
+      "label": "¿Tienes algo en mente?",
+      "title": "Cuéntanos tu idea",
+      "text": "Sin compromiso. Llámanos y te ayudamos a planear cada detalle para que solo tengas que disfrutar.",
+      "phone": "+34 928 60 75 70",
+      "phoneLabel": "Llamar ahora",
+      "salaLabel": "Ver el Salon Lumière"
     }
   },
   "hitCard": {

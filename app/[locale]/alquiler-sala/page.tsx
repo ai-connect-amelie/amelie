@@ -26,6 +26,7 @@ function Diamond() {
 }
 
 const usoKeys = ['corporativo', 'privado', 'grupo'] as const;
+const modalidadKeys = ['a', 'b'] as const;
 
 export default function AlquilerSalaPage() {
   const t = useTranslations('alquilerSala');
@@ -119,6 +120,60 @@ export default function AlquilerSalaPage() {
               </div>
             </FadeIn>
 
+          </div>
+        </div>
+      </section>
+
+      {/* Separador */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="h-px bg-dore/20" />
+      </div>
+
+      {/* Modalidades */}
+      <section className="py-24 lg:py-32">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+
+          <FadeIn className="text-center mb-14">
+            <p className="text-noir/50 text-xs tracking-[0.3em] uppercase font-body mb-4">
+              {t('modalidades.label')}
+            </p>
+            <h2 className="font-display italic text-4xl md:text-5xl text-noir font-light">
+              {t('modalidades.title')}
+            </h2>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            {modalidadKeys.map((key, i) => {
+              const tags = t.raw(`modalidades.${key}.tags`) as string[];
+              return (
+                <FadeIn key={key} delay={i * 0.15}>
+                  <div className="border border-dore/40 p-1.5 h-full">
+                    <div className="border border-dore/20 p-8 lg:p-10 h-full flex flex-col">
+                      <span className="text-dore text-xs tracking-[0.3em] font-body">
+                        {t(`modalidades.${key}.numero`)}
+                      </span>
+                      <div className="w-8 h-px bg-dore/40 my-4" />
+                      <p className="text-taupe/60 text-[10px] tracking-[0.25em] uppercase font-body mb-2">
+                        {t(`modalidades.${key}.label`)}
+                      </p>
+                      <h3 className="font-display italic text-2xl md:text-3xl text-noir font-light leading-tight mb-5">
+                        {t(`modalidades.${key}.title`)}
+                      </h3>
+                      <p className="text-noir/65 text-sm font-body font-light leading-relaxed flex-1 mb-8">
+                        {t(`modalidades.${key}.text`)}
+                      </p>
+                      <div className="flex flex-wrap gap-2 pt-6 border-t border-dore/20">
+                        {tags.map((tag) => (
+                          <span key={tag} className="text-[10px] tracking-widest uppercase font-body text-taupe/60 border border-dore/25 px-3 py-1.5">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </FadeIn>
+              );
+            })}
           </div>
         </div>
       </section>

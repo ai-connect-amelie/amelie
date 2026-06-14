@@ -5,6 +5,7 @@ import DifferentialsBlock from '@/components/home/DifferentialsBlock';
 import KilometroBlock from '@/components/home/KilometroBlock';
 import GaletteBlock from '@/components/home/GaletteBlock';
 import SalonBlock from '@/components/home/SalonBlock';
+import RegalAmelieBlock from '@/components/home/RegalAmelieBlock';
 import InstagramBlock from '@/components/home/InstagramBlock';
 import LocationBlock from '@/components/home/LocationBlock';
 import WallpaperSection from '@/components/home/WallpaperSection';
@@ -20,6 +21,7 @@ export default function HomePage() {
         <KilometroBlock />
         <GaletteBlock />
         <SalonBlock />
+        <RegalAmelieBlock />
         <InstagramBlock />
         <LocationBlock />
       </WallpaperSection>
