@@ -88,6 +88,12 @@
       "phone": "+34 928 60 75 70",
       "ctaReservar": "Reservar mesa",
       "ctaMaps": "Cómo llegar"
+    },
+    "salon": {
+      "label": "Salón Lumière",
+      "title": "El evento perfecto comienza aquí",
+      "text": "En nuestro Salón Lumière, en pleno centro de Las Palmas, ofrecemos el escenario ideal para reuniones privadas, presentaciones, eventos corporativos, celebraciones familiares y comuniones íntimas. Nuestro equipo cuida cada detalle para que todo fluya a la perfección.",
+      "cta": "Descubrir el espacio"
     }
   },
   "quienesSomos": {
@@ -340,6 +346,58 @@
           { "name": "Helado de Vainilla con Coulis", "desc": "Una bola 2,50 · dos bolas 4,00.", "price": "" }
         ]
       }
+    }
+  },
+  "alquilerSala": {
+    "hero": {
+      "label": "Espacio privado · Las Palmas",
+      "title": "Salón Lumière",
+      "subtitle": "Un espacio singular en el corazón de la ciudad."
+    },
+    "intro": {
+      "label": "El espacio",
+      "title": "Hecho para momentos que importan",
+      "text1": "El Salón Lumière es un espacio privado e independiente, disponible con o sin servicio de restauración. Adaptable en su totalidad a la demanda y necesidades de cada cliente.",
+      "text2": "Desde reuniones privadas y presentaciones corporativas, hasta celebraciones familiares, cenas de grupo y comuniones íntimas — nuestro equipo cuida cada detalle para que todo fluya a la perfección."
+    },
+    "usos": {
+      "label": "Para cada ocasión",
+      "title": "Un espacio, mil posibilidades",
+      "corporativo": {
+        "numero": "01",
+        "label": "Corporativo",
+        "title": "Reuniones & Presentaciones",
+        "text": "El entorno ideal para reuniones de dirección, presentaciones de producto, workshops y eventos corporativos. Espacio privado, profesional y adaptable al detalle."
+      },
+      "privado": {
+        "numero": "02",
+        "label": "Privado",
+        "title": "Celebraciones familiares",
+        "text": "Cumpleaños, aniversarios, comuniones y cenas íntimas. Un espacio cálido y exclusivo, totalmente a vuestra disposición, para los momentos que más importan."
+      },
+      "grupo": {
+        "numero": "03",
+        "label": "Grupos",
+        "title": "Cenas & Eventos de grupo",
+        "text": "Comidas y cenas de grupo en un entorno privado. Con o sin servicio de restauración. Siempre personalizado, siempre a vuestra medida."
+      }
+    },
+    "capacidad": {
+      "label": "Capacidad",
+      "numero": "60",
+      "unidad": "personas",
+      "nota": "Aforo orientativo · sujeto a distribución del espacio"
+    },
+    "precio": {
+      "label": "Precio",
+      "texto": "A consultar según tipo de evento y necesidades"
+    },
+    "cta": {
+      "label": "¿Tienes un evento en mente?",
+      "title": "Consúltanos sin compromiso",
+      "text": "Cuéntanos tu idea y te ayudamos a hacerla realidad. Llámanos y te contamos todo lo que el Salón Lumière puede ofrecerte.",
+      "phone": "+34 928 60 75 70",
+      "phoneLabel": "Llamar ahora"
     }
   },
   "footer": {
