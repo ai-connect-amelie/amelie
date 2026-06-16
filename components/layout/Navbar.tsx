@@ -41,9 +41,9 @@ export default function Navbar() {
   const navLinks = [
     { href: '/quienes-somos', label: t('quienesSomos') },
     { href: '/carta', label: t('carta') },
-    { href: '/alquiler-sala', label: t('alquilerSala') },
-    { href: '/hit-card', label: t('hitCard') },
     { href: '/eventos', label: t('eventos') },
+    { href: '/hit-card', label: t('hitCard') },
+    { href: '/alquiler-sala', label: t('alquilerSala') },
     { href: '/galeria', label: t('galeria') },
     { href: '/contacto', label: t('contacto') },
   ];
